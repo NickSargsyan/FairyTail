@@ -80,6 +80,7 @@
         
         languageDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Language" ofType:@"plist"]];
         
+        //Inititialize device motion manager to track device rotations
         motionManager = [[CMMotionManager alloc] init];
         motionAttitude = nil;
         
@@ -90,6 +91,7 @@
         [motionManager setDeviceMotionUpdateInterval:1.0/60.0];
         [motionManager setAccelerometerUpdateInterval:1.0/60.0];
         [motionManager startDeviceMotionUpdates];
+        [motionManager startAccelerometerUpdates];
         
         
 //        motionTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0)
@@ -114,6 +116,8 @@
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:isLaunchedBefore])
     {
+        //Show Language Choose Dialog if launched first time
+        
         [self viewLanguageChooseDialog];
     }
     else
@@ -163,6 +167,7 @@
         NSNumber *middleOrigin = [NSNumber numberWithInt:newOrigin.intValue + ((id + 1) % 2) * buttonSize * 2 - buttonSize];
         NSNumber *oldOrigin = [NSNumber numberWithInt:(id % 2) * (748 + 2 * buttonSize) - buttonSize];
         
+        //Perform button animations
         buttonSlideInAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
         [buttonSlideInAnimation setValues:[NSArray arrayWithObjects:oldOrigin,
                                       middleOrigin,
@@ -204,6 +209,7 @@
         NSNumber *middleOrigin = [NSNumber numberWithInt:oldOrigin.intValue + (i % 2) * buttonSize * 2 - buttonSize];
         NSNumber *newOrigin = [NSNumber numberWithInt:((i + 1) % 2) * (748 + 2 * buttonSize) - buttonSize];
         
+        //Perform button animations
         CAKeyframeAnimation *keyframeAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
         [keyframeAnimation setValues:[NSArray arrayWithObjects:oldOrigin,
                                                                middleOrigin,
@@ -252,7 +258,7 @@
         [[self view] addSubview:titleView];
     }
     
-    
+    //Perform titleView/readerView appear/disappear animations
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.4];
@@ -298,6 +304,7 @@
         [[self view] addSubview:readerView];
     }
     
+    //Perform titleView/readerView appear/disappear animations
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.4];
@@ -315,6 +322,7 @@
 
 - (void)constructBook
 {
+    //Initialize swipe gestures to navigate between pages
     UISwipeGestureRecognizer *rightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pageScrolledRight:)];
     [rightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     UISwipeGestureRecognizer *leftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pageScrolledLeft:)];
@@ -329,6 +337,7 @@
     
     totalPageNumber = [bookDictionary count];
 
+    //Construct first page
     [self constructBookPageWithNumber:0];
     
     [readerView addSubview:bookView];
@@ -342,7 +351,7 @@
     NSInteger stageCount = [pageDictionary count] - 1;
     
     rotationalNumber = 0;
-    
+
     for (NSDictionary *stageDictionary in [pageDictionary allValues])
     {
         NSLog(@"%@", [stageDictionary debugDescription]);
@@ -356,7 +365,7 @@
         [stageImageView setImage:[UIImage imageNamed:[stageDictionary valueForKey:stageImage]]];
         [stageView addSubview:stageImageView];
         
-        //Add rotatables
+        //Add rotatables to stafe
         NSMutableDictionary *rotationalsDictionary = [stageDictionary objectForKey:rotationals];
         
         NSInteger rotationalCount = [rotationalsDictionary count] - 1;
@@ -407,6 +416,7 @@
 
 - (void)bookPageChanged
 {
+    //Nothing here yet
     CATransition *transitionAnimation = [CATransition animation];
     [transitionAnimation setDuration:1.0f];
     [transitionAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
@@ -502,6 +512,7 @@
 {
     if (volumeSettingsEnabled)
     {
+        //Perform conceal animations
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView beginAnimations:nil context:nil];
             [UIView setAnimationDuration:0.1];
@@ -524,6 +535,7 @@
             [upperSettingsView addSubview:volumeSlider];
         }
         
+        //Perform apperence animations
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView beginAnimations:nil context:nil];
             [UIView setAnimationDuration:0.1];
@@ -554,6 +566,7 @@
         {
             UIButton *languageButton = (UIButton *)[upperSettingsView viewWithTag:(id + languageButtonTag)];
             
+            //Perform coceal animations
             dispatch_async(dispatch_get_main_queue(), ^{
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:0.1];
@@ -588,6 +601,7 @@
             [languageButton addTarget:self action:@selector(languageSettingsChoosen:) forControlEvents:UIControlEventTouchUpInside];
             [upperSettingsView addSubview:languageButton];
             
+            //Perform apperence animations
             dispatch_async(dispatch_get_main_queue(), ^{
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:0.1];
@@ -614,6 +628,7 @@
     {
         UIButton *languageButton = (UIButton *)[upperSettingsView viewWithTag:(id + languageButtonTag)];
         
+        //Perform coceal animations
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView beginAnimations:nil context:nil];
             [UIView setAnimationDuration:0.1];
@@ -632,6 +647,7 @@
 
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag
 {
+    //Handle Language Dialog's animation end in order to make language buttons clickable
     if ([[animation valueForKey:animationType] isEqualToString:@"buttonSlideInAnimation"])
     {
         int buttonSize = 1024 / [languageDictionary count] > 128 ? 128 : 1024 / [languageDictionary count];
@@ -666,13 +682,15 @@
 
 - (void)getDeviceGLRotationMatrixWithAcceleration:(CMRotationRate)rotationRate
 {
+    //Kip track on device motion
+    
     CMDeviceMotion *deviceMotion = motionManager.deviceMotion;
     CMAcceleration deviceAcceleration = motionManager.accelerometerData.acceleration;
     CMAttitude *attitude = deviceMotion.attitude;
     
 //    NSLog(@"x %f", rotationRate.x);
 //    NSLog(@"y %f", rotationRate.y);
-//    NSLog(@"z %f", rotationRate.z);guugufu
+//    NSLog(@"z %f", rotationRate.z);
     
     if (motionAttitude != nil) [attitude multiplyByInverseOfAttitude:motionAttitude];
     
@@ -680,18 +698,28 @@
 //    NSLog(@"pitch %f", attitude.pitch);
 //    NSLog(@"yaw %f", attitude.yaw);
     
+    NSLog(@"x %f", deviceAcceleration.x);
+    NSLog(@"y %f", deviceAcceleration.y);
+    
     for (int i = 0 ; i < stageNumber ; i++)
     {
+        //Perform parallax
         UIView *stage = (UIView *)[bookView viewWithTag:parallaxStageTag + i];
-        NSNumber *coefficient = (NSNumber *)[[stage userInfo] valueForKey:parallaxCoefficient];
-        CGFloat pitch = sin(attitude.pitch) * sin(attitude.pitch);
-        CGFloat yaw = sin(attitude.yaw) * sin(attitude.yaw);
-        CGFloat root = sqrt(pitch + yaw);
-        CGFloat angle = root * [coefficient floatValue];
-        [stage setFrame:CGRectOffset(stageFrame, angle, 0)];
+        
+        if (deviceAcceleration.x < 1.0 && deviceAcceleration.y < 1.0)
+        {
+            NSNumber *coefficient = (NSNumber *)[[stage userInfo] valueForKey:parallaxCoefficient];
+            CGFloat sign = (attitude.yaw * attitude.pitch > 0) ? 1 : -1;
+            CGFloat pitch = sin(attitude.pitch) * sin(attitude.pitch);
+            CGFloat yaw = sin(attitude.yaw) * sin(attitude.yaw);
+            CGFloat root = sqrt(pitch + yaw);
+            CGFloat angle = sign * root * [coefficient floatValue];
+            [stage setFrame:CGRectOffset(stageFrame, angle, 0)];
+        }
         
         for (int j = 0 ; j < rotationalNumber ; j++)
         {
+            //Perform rotations
             UIImageView *rotational = (UIImageView *)[stage viewWithTag:rotationalTag + j];
             [rotational setTransform:CGAffineTransformMakeRotation([attitude pitch] * [attitude roll])];
         }
