@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39BDB4A17D74891009151D4 /* CoreMotion.framework */; };
+		C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B69CB217D601850036181B /* StoreKit.framework */; };
+		C3B69CC017D6288F0036181B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CBF17D6288F0036181B /* back.png */; };
+		C3B69CC317D62AD00036181B /* slider-background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CC117D62AD00036181B /* slider-background.png */; };
+		C3B69CC417D62AD00036181B /* slider-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CC217D62AD00036181B /* slider-pin.png */; };
+		C3C46CC517CB49B0002F68C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CC417CB49B0002F68C5 /* UIKit.framework */; };
+		C3C46CC717CB49B0002F68C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CC617CB49B0002F68C5 /* Foundation.framework */; };
+		C3C46CC917CB49B0002F68C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CC817CB49B0002F68C5 /* CoreGraphics.framework */; };
+		C3C46CCF17CB49B0002F68C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3C46CCD17CB49B0002F68C5 /* InfoPlist.strings */; };
+		C3C46CD117CB49B0002F68C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C46CD017CB49B0002F68C5 /* main.m */; };
+		C3C46CD717CB49B0002F68C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46CD617CB49B0002F68C5 /* Default.png */; };
+		C3C46CD917CB49B0002F68C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46CD817CB49B0002F68C5 /* Default@2x.png */; };
+		C3C46CDB17CB49B0002F68C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46CDA17CB49B0002F68C5 /* Default-568h@2x.png */; };
+		C3C46CE317CB49B0002F68C5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CE217CB49B0002F68C5 /* SenTestingKit.framework */; };
+		C3C46CE417CB49B0002F68C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CC417CB49B0002F68C5 /* UIKit.framework */; };
+		C3C46CE517CB49B0002F68C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C46CC617CB49B0002F68C5 /* Foundation.framework */; };
+		C3C46CED17CB49B0002F68C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3C46CEB17CB49B0002F68C5 /* InfoPlist.strings */; };
+		C3C46CF017CB49B0002F68C5 /* Fairy_TailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C46CEF17CB49B0002F68C5 /* Fairy_TailTests.m */; };
+		C3C46D0317CB4B3E002F68C5 /* FairyTailReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C46D0117CB4B3E002F68C5 /* FairyTailReaderViewController.m */; };
+		C3C46D0417CB4B3E002F68C5 /* FairyTailReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D0217CB4B3E002F68C5 /* FairyTailReaderViewController.xib */; };
+		C3C46D0A17CB4E01002F68C5 /* FairyTailAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C46D0817CB4E01002F68C5 /* FairyTailAppDelegate.m */; };
+		C3C46D0C17CB4E3C002F68C5 /* Language.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D0B17CB4E3C002F68C5 /* Language.plist */; };
+		C3C46D0E17CB4ED6002F68C5 /* Book.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D0D17CB4ED6002F68C5 /* Book.plist */; };
+		C3C46D1017CB4EEF002F68C5 /* Script_rus.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D0F17CB4EEF002F68C5 /* Script_rus.plist */; };
+		C3C46D1217CB4F03002F68C5 /* Script_arm.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D1117CB4F03002F68C5 /* Script_arm.plist */; };
+		C3C46D2017CCAB78002F68C5 /* icon-arm.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D1D17CCAB78002F68C5 /* icon-arm.png */; };
+		C3C46D2117CCAB78002F68C5 /* icon-eng.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D1E17CCAB78002F68C5 /* icon-eng.png */; };
+		C3C46D2217CCAB78002F68C5 /* icon-rus.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D1F17CCAB78002F68C5 /* icon-rus.png */; };
+		C3C46D2817CCC16D002F68C5 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D2417CCC16D002F68C5 /* 0.jpg */; };
+		C3C46D2917CCC16D002F68C5 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D2517CCC16D002F68C5 /* 1.jpg */; };
+		C3C46D2A17CCC16D002F68C5 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D2617CCC16D002F68C5 /* 2.jpg */; };
+		C3C46D2B17CCC16D002F68C5 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D2717CCC16D002F68C5 /* 3.jpg */; };
+		C3C46D2E17CCCD0F002F68C5 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C46D2D17CCCD0F002F68C5 /* wood.png */; };
+		C3D157D517D4BA1400BD73FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D157D417D4BA1400BD73FB /* QuartzCore.framework */; };
+		C3D157D717D4D45A00BD73FB /* volume.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D157D617D4D45A00BD73FB /* volume.png */; };
+		C3D157D917D4D93400BD73FB /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D157D817D4D93400BD73FB /* language.png */; };
+		C3D157DD17D4E12B00BD73FB /* simply-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D157DC17D4E12B00BD73FB /* simply-small.png */; };
+		C3EEE3F617D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EEE3F517D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m */; };
+		C3EEE3F917D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EEE3F817D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m */; };
+		C3EEE3FB17D76C6E00CC9B85 /* Screen-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3EEE3FA17D76C6E00CC9B85 /* Screen-en.plist */; };
+		C3EEE3FE17D7749F00CC9B85 /* UIView+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EEE3FD17D7749F00CC9B85 /* UIView+UserInfo.m */; };
+		C3EEE40017D77EC800CC9B85 /* wheel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3EEE3FF17D77EC800CC9B85 /* wheel.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3C46CE617CB49B0002F68C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3C46CB917CB49B0002F68C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C46CC017CB49B0002F68C5;
+			remoteInfo = "Fairy Tail";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C39BDB4A17D74891009151D4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C3B69CB217D601850036181B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C3B69CBF17D6288F0036181B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		C3B69CC117D62AD00036181B /* slider-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-background.png"; sourceTree = "<group>"; };
+		C3B69CC217D62AD00036181B /* slider-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-pin.png"; sourceTree = "<group>"; };
+		C3C46CC117CB49B0002F68C5 /* Fairy Tail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fairy Tail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C46CC417CB49B0002F68C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C3C46CC617CB49B0002F68C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3C46CC817CB49B0002F68C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C3C46CCC17CB49B0002F68C5 /* Fairy Tail-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fairy Tail-Info.plist"; sourceTree = "<group>"; };
+		C3C46CCE17CB49B0002F68C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3C46CD017CB49B0002F68C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3C46CD217CB49B0002F68C5 /* Fairy Tail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fairy Tail-Prefix.pch"; sourceTree = "<group>"; };
+		C3C46CD617CB49B0002F68C5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C3C46CD817CB49B0002F68C5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C3C46CDA17CB49B0002F68C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C3C46CE117CB49B0002F68C5 /* Fairy TailTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fairy TailTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C46CE217CB49B0002F68C5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C3C46CEA17CB49B0002F68C5 /* Fairy TailTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fairy TailTests-Info.plist"; sourceTree = "<group>"; };
+		C3C46CEC17CB49B0002F68C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3C46CEE17CB49B0002F68C5 /* Fairy_TailTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fairy_TailTests.h; sourceTree = "<group>"; };
+		C3C46CEF17CB49B0002F68C5 /* Fairy_TailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fairy_TailTests.m; sourceTree = "<group>"; };
+		C3C46D0017CB4B3E002F68C5 /* FairyTailReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailReaderViewController.h; sourceTree = "<group>"; };
+		C3C46D0117CB4B3E002F68C5 /* FairyTailReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailReaderViewController.m; sourceTree = "<group>"; };
+		C3C46D0217CB4B3E002F68C5 /* FairyTailReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FairyTailReaderViewController.xib; sourceTree = "<group>"; };
+		C3C46D0717CB4E01002F68C5 /* FairyTailAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailAppDelegate.h; sourceTree = "<group>"; };
+		C3C46D0817CB4E01002F68C5 /* FairyTailAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailAppDelegate.m; sourceTree = "<group>"; };
+		C3C46D0B17CB4E3C002F68C5 /* Language.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Language.plist; sourceTree = "<group>"; };
+		C3C46D0D17CB4ED6002F68C5 /* Book.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Book.plist; sourceTree = "<group>"; };
+		C3C46D0F17CB4EEF002F68C5 /* Script_rus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Script_rus.plist; sourceTree = "<group>"; };
+		C3C46D1117CB4F03002F68C5 /* Script_arm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Script_arm.plist; sourceTree = "<group>"; };
+		C3C46D1D17CCAB78002F68C5 /* icon-arm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-arm.png"; sourceTree = "<group>"; };
+		C3C46D1E17CCAB78002F68C5 /* icon-eng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-eng.png"; sourceTree = "<group>"; };
+		C3C46D1F17CCAB78002F68C5 /* icon-rus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rus.png"; sourceTree = "<group>"; };
+		C3C46D2417CCC16D002F68C5 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		C3C46D2517CCC16D002F68C5 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		C3C46D2617CCC16D002F68C5 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		C3C46D2717CCC16D002F68C5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		C3C46D2D17CCCD0F002F68C5 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood.png; sourceTree = "<group>"; };
+		C3D157D417D4BA1400BD73FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3D157D617D4D45A00BD73FB /* volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume.png; sourceTree = "<group>"; };
+		C3D157D817D4D93400BD73FB /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
+		C3D157DC17D4E12B00BD73FB /* simply-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "simply-small.png"; sourceTree = "<group>"; };
+		C3EEE3F417D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailInteractiveRotatableImageView.h; sourceTree = "<group>"; };
+		C3EEE3F517D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailInteractiveRotatableImageView.m; sourceTree = "<group>"; };
+		C3EEE3F717D762D700CC9B85 /* FairyTailInteractiveMovableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailInteractiveMovableImageView.h; sourceTree = "<group>"; };
+		C3EEE3F817D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailInteractiveMovableImageView.m; sourceTree = "<group>"; };
+		C3EEE3FA17D76C6E00CC9B85 /* Screen-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Screen-en.plist"; sourceTree = "<group>"; };
+		C3EEE3FC17D7749F00CC9B85 /* UIView+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UserInfo.h"; sourceTree = "<group>"; };
+		C3EEE3FD17D7749F00CC9B85 /* UIView+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UserInfo.m"; sourceTree = "<group>"; };
+		C3EEE3FF17D77EC800CC9B85 /* wheel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wheel.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3C46CBE17CB49B0002F68C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */,
+				C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */,
+				C3D157D517D4BA1400BD73FB /* QuartzCore.framework in Frameworks */,
+				C3C46CC517CB49B0002F68C5 /* UIKit.framework in Frameworks */,
+				C3C46CC717CB49B0002F68C5 /* Foundation.framework in Frameworks */,
+				C3C46CC917CB49B0002F68C5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C46CDD17CB49B0002F68C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C46CE317CB49B0002F68C5 /* SenTestingKit.framework in Frameworks */,
+				C3C46CE417CB49B0002F68C5 /* UIKit.framework in Frameworks */,
+				C3C46CE517CB49B0002F68C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3C46CB817CB49B0002F68C5 = {
+			isa = PBXGroup;
+			children = (
+				C3C46CCA17CB49B0002F68C5 /* Fairy Tail */,
+				C3C46CE817CB49B0002F68C5 /* Fairy TailTests */,
+				C3C46CC317CB49B0002F68C5 /* Frameworks */,
+				C3C46CC217CB49B0002F68C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3C46CC217CB49B0002F68C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46CC117CB49B0002F68C5 /* Fairy Tail.app */,
+				C3C46CE117CB49B0002F68C5 /* Fairy TailTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3C46CC317CB49B0002F68C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C39BDB4A17D74891009151D4 /* CoreMotion.framework */,
+				C3B69CB217D601850036181B /* StoreKit.framework */,
+				C3D157D417D4BA1400BD73FB /* QuartzCore.framework */,
+				C3C46CC417CB49B0002F68C5 /* UIKit.framework */,
+				C3C46CC617CB49B0002F68C5 /* Foundation.framework */,
+				C3C46CC817CB49B0002F68C5 /* CoreGraphics.framework */,
+				C3C46CE217CB49B0002F68C5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3C46CCA17CB49B0002F68C5 /* Fairy Tail */ = {
+			isa = PBXGroup;
+			children = (
+				C3EEE3F317D7628400CC9B85 /* Custom Views */,
+				C3C46CFF17CB4B2E002F68C5 /* Reader */,
+				C3C46D0917CB4E01002F68C5 /* Support */,
+				C3C46D1B17CCAB78002F68C5 /* Images */,
+				C3C46D0617CB4E01002F68C5 /* Fairy Tail Delegate */,
+				C3C46CCB17CB49B0002F68C5 /* Supporting Files */,
+			);
+			path = "Fairy Tail";
+			sourceTree = "<group>";
+		};
+		C3C46CCB17CB49B0002F68C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46CCC17CB49B0002F68C5 /* Fairy Tail-Info.plist */,
+				C3C46CCD17CB49B0002F68C5 /* InfoPlist.strings */,
+				C3C46CD017CB49B0002F68C5 /* main.m */,
+				C3C46CD217CB49B0002F68C5 /* Fairy Tail-Prefix.pch */,
+				C3C46CD617CB49B0002F68C5 /* Default.png */,
+				C3C46CD817CB49B0002F68C5 /* Default@2x.png */,
+				C3C46CDA17CB49B0002F68C5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3C46CE817CB49B0002F68C5 /* Fairy TailTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46CEE17CB49B0002F68C5 /* Fairy_TailTests.h */,
+				C3C46CEF17CB49B0002F68C5 /* Fairy_TailTests.m */,
+				C3C46CE917CB49B0002F68C5 /* Supporting Files */,
+			);
+			path = "Fairy TailTests";
+			sourceTree = "<group>";
+		};
+		C3C46CE917CB49B0002F68C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46CEA17CB49B0002F68C5 /* Fairy TailTests-Info.plist */,
+				C3C46CEB17CB49B0002F68C5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3C46CFF17CB4B2E002F68C5 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D0017CB4B3E002F68C5 /* FairyTailReaderViewController.h */,
+				C3C46D0117CB4B3E002F68C5 /* FairyTailReaderViewController.m */,
+				C3C46D0217CB4B3E002F68C5 /* FairyTailReaderViewController.xib */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		C3C46D0617CB4E01002F68C5 /* Fairy Tail Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D0717CB4E01002F68C5 /* FairyTailAppDelegate.h */,
+				C3C46D0817CB4E01002F68C5 /* FairyTailAppDelegate.m */,
+			);
+			path = "Fairy Tail Delegate";
+			sourceTree = "<group>";
+		};
+		C3C46D0917CB4E01002F68C5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D0B17CB4E3C002F68C5 /* Language.plist */,
+				C3C46D0D17CB4ED6002F68C5 /* Book.plist */,
+				C3EEE3FA17D76C6E00CC9B85 /* Screen-en.plist */,
+				C3C46D0F17CB4EEF002F68C5 /* Script_rus.plist */,
+				C3C46D1117CB4F03002F68C5 /* Script_arm.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		C3C46D1B17CCAB78002F68C5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D2C17CCCD0F002F68C5 /* Backgrounds */,
+				C3C46D2317CCC16D002F68C5 /* Story */,
+				C3C46D1C17CCAB78002F68C5 /* Icons */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C3C46D1C17CCAB78002F68C5 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				C3EEE3FF17D77EC800CC9B85 /* wheel.jpg */,
+				C3B69CC117D62AD00036181B /* slider-background.png */,
+				C3B69CC217D62AD00036181B /* slider-pin.png */,
+				C3B69CBF17D6288F0036181B /* back.png */,
+				C3D157DC17D4E12B00BD73FB /* simply-small.png */,
+				C3D157D817D4D93400BD73FB /* language.png */,
+				C3D157D617D4D45A00BD73FB /* volume.png */,
+				C3C46D1D17CCAB78002F68C5 /* icon-arm.png */,
+				C3C46D1E17CCAB78002F68C5 /* icon-eng.png */,
+				C3C46D1F17CCAB78002F68C5 /* icon-rus.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		C3C46D2317CCC16D002F68C5 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D2417CCC16D002F68C5 /* 0.jpg */,
+				C3C46D2517CCC16D002F68C5 /* 1.jpg */,
+				C3C46D2617CCC16D002F68C5 /* 2.jpg */,
+				C3C46D2717CCC16D002F68C5 /* 3.jpg */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		C3C46D2C17CCCD0F002F68C5 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				C3C46D2D17CCCD0F002F68C5 /* wood.png */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		C3EEE3F317D7628400CC9B85 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3EEE3FC17D7749F00CC9B85 /* UIView+UserInfo.h */,
+				C3EEE3FD17D7749F00CC9B85 /* UIView+UserInfo.m */,
+				C3EEE3F417D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.h */,
+				C3EEE3F517D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m */,
+				C3EEE3F717D762D700CC9B85 /* FairyTailInteractiveMovableImageView.h */,
+				C3EEE3F817D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3C46CC017CB49B0002F68C5 /* Fairy Tail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C46CF317CB49B0002F68C5 /* Build configuration list for PBXNativeTarget "Fairy Tail" */;
+			buildPhases = (
+				C3C46CBD17CB49B0002F68C5 /* Sources */,
+				C3C46CBE17CB49B0002F68C5 /* Frameworks */,
+				C3C46CBF17CB49B0002F68C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fairy Tail";
+			productName = "Fairy Tail";
+			productReference = C3C46CC117CB49B0002F68C5 /* Fairy Tail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3C46CE017CB49B0002F68C5 /* Fairy TailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C46CF617CB49B0002F68C5 /* Build configuration list for PBXNativeTarget "Fairy TailTests" */;
+			buildPhases = (
+				C3C46CDC17CB49B0002F68C5 /* Sources */,
+				C3C46CDD17CB49B0002F68C5 /* Frameworks */,
+				C3C46CDE17CB49B0002F68C5 /* Resources */,
+				C3C46CDF17CB49B0002F68C5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3C46CE717CB49B0002F68C5 /* PBXTargetDependency */,
+			);
+			name = "Fairy TailTests";
+			productName = "Fairy TailTests";
+			productReference = C3C46CE117CB49B0002F68C5 /* Fairy TailTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3C46CB917CB49B0002F68C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FairyTail;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Simply Technologies";
+			};
+			buildConfigurationList = C3C46CBC17CB49B0002F68C5 /* Build configuration list for PBXProject "Fairy Tail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C3C46CB817CB49B0002F68C5;
+			productRefGroup = C3C46CC217CB49B0002F68C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3C46CC017CB49B0002F68C5 /* Fairy Tail */,
+				C3C46CE017CB49B0002F68C5 /* Fairy TailTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3C46CBF17CB49B0002F68C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C46CCF17CB49B0002F68C5 /* InfoPlist.strings in Resources */,
+				C3C46CD717CB49B0002F68C5 /* Default.png in Resources */,
+				C3C46CD917CB49B0002F68C5 /* Default@2x.png in Resources */,
+				C3C46CDB17CB49B0002F68C5 /* Default-568h@2x.png in Resources */,
+				C3C46D0417CB4B3E002F68C5 /* FairyTailReaderViewController.xib in Resources */,
+				C3C46D0C17CB4E3C002F68C5 /* Language.plist in Resources */,
+				C3C46D0E17CB4ED6002F68C5 /* Book.plist in Resources */,
+				C3C46D1017CB4EEF002F68C5 /* Script_rus.plist in Resources */,
+				C3C46D1217CB4F03002F68C5 /* Script_arm.plist in Resources */,
+				C3C46D2017CCAB78002F68C5 /* icon-arm.png in Resources */,
+				C3C46D2117CCAB78002F68C5 /* icon-eng.png in Resources */,
+				C3C46D2217CCAB78002F68C5 /* icon-rus.png in Resources */,
+				C3C46D2817CCC16D002F68C5 /* 0.jpg in Resources */,
+				C3C46D2917CCC16D002F68C5 /* 1.jpg in Resources */,
+				C3C46D2A17CCC16D002F68C5 /* 2.jpg in Resources */,
+				C3C46D2B17CCC16D002F68C5 /* 3.jpg in Resources */,
+				C3C46D2E17CCCD0F002F68C5 /* wood.png in Resources */,
+				C3D157D717D4D45A00BD73FB /* volume.png in Resources */,
+				C3D157D917D4D93400BD73FB /* language.png in Resources */,
+				C3D157DD17D4E12B00BD73FB /* simply-small.png in Resources */,
+				C3B69CC017D6288F0036181B /* back.png in Resources */,
+				C3B69CC317D62AD00036181B /* slider-background.png in Resources */,
+				C3B69CC417D62AD00036181B /* slider-pin.png in Resources */,
+				C3EEE3FB17D76C6E00CC9B85 /* Screen-en.plist in Resources */,
+				C3EEE40017D77EC800CC9B85 /* wheel.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C46CDE17CB49B0002F68C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C46CED17CB49B0002F68C5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C3C46CDF17CB49B0002F68C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3C46CBD17CB49B0002F68C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C46CD117CB49B0002F68C5 /* main.m in Sources */,
+				C3C46D0317CB4B3E002F68C5 /* FairyTailReaderViewController.m in Sources */,
+				C3C46D0A17CB4E01002F68C5 /* FairyTailAppDelegate.m in Sources */,
+				C3EEE3F617D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m in Sources */,
+				C3EEE3F917D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m in Sources */,
+				C3EEE3FE17D7749F00CC9B85 /* UIView+UserInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C46CDC17CB49B0002F68C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C46CF017CB49B0002F68C5 /* Fairy_TailTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3C46CE717CB49B0002F68C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C46CC017CB49B0002F68C5 /* Fairy Tail */;
+			targetProxy = C3C46CE617CB49B0002F68C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3C46CCD17CB49B0002F68C5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C46CCE17CB49B0002F68C5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3C46CEB17CB49B0002F68C5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3C46CEC17CB49B0002F68C5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3C46CF117CB49B0002F68C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: HARUTYUN Adamyan (ESS83K6PA5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HARUTYUN Adamyan (ESS83K6PA5)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C3C46CF217CB49B0002F68C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: HARUTYUN Adamyan (ESS83K6PA5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HARUTYUN Adamyan (ESS83K6PA5)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3C46CF417CB49B0002F68C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fairy Tail/Fairy Tail-Prefix.pch";
+				INFOPLIST_FILE = "Fairy Tail/Fairy Tail-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3C46CF517CB49B0002F68C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fairy Tail/Fairy Tail-Prefix.pch";
+				INFOPLIST_FILE = "Fairy Tail/Fairy Tail-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C3C46CF717CB49B0002F68C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fairy Tail.app/Fairy Tail";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fairy Tail/Fairy Tail-Prefix.pch";
+				INFOPLIST_FILE = "Fairy TailTests/Fairy TailTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C3C46CF817CB49B0002F68C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fairy Tail.app/Fairy Tail";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fairy Tail/Fairy Tail-Prefix.pch";
+				INFOPLIST_FILE = "Fairy TailTests/Fairy TailTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3C46CBC17CB49B0002F68C5 /* Build configuration list for PBXProject "Fairy Tail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C46CF117CB49B0002F68C5 /* Debug */,
+				C3C46CF217CB49B0002F68C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3C46CF317CB49B0002F68C5 /* Build configuration list for PBXNativeTarget "Fairy Tail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C46CF417CB49B0002F68C5 /* Debug */,
+				C3C46CF517CB49B0002F68C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3C46CF617CB49B0002F68C5 /* Build configuration list for PBXNativeTarget "Fairy TailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C46CF717CB49B0002F68C5 /* Debug */,
+				C3C46CF817CB49B0002F68C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3C46CB917CB49B0002F68C5 /* Project object */;
+}

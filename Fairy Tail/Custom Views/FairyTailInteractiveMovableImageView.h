@@ -1,0 +1,13 @@
+//
+//  FairyTailInteractiveMovableImageView.h
+//  Fairy Tail
+//
+//  Created by Nick Sargsyan on 9/4/13.
+//  Copyright (c) 2013 Simply Technologies. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface FairyTailInteractiveMovableImageView : UIImageView
+
+@end
