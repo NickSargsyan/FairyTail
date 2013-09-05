@@ -672,7 +672,7 @@
     
 //    NSLog(@"x %f", rotationRate.x);
 //    NSLog(@"y %f", rotationRate.y);
-//    NSLog(@"z %f", rotationRate.z);
+//    NSLog(@"z %f", rotationRate.z);guugufu
     
     if (motionAttitude != nil) [attitude multiplyByInverseOfAttitude:motionAttitude];
     
