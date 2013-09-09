@@ -7,6 +7,8 @@
 //
 
 #import "FairyTailInteractiveMovableImageView.h"
+#import "UIView+UserInfo.h"
+#import "Constants.h"
 
 @implementation FairyTailInteractiveMovableImageView
 
@@ -17,6 +19,10 @@
         // Initialization code
     }
     return self;
+}
+- (void)didMoveToSuperview
+{
+
 }
 
 /*

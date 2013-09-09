@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C399765917DA4D54007EDBFB /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = C399765817DA3BA8007EDBFB /* Constants.h */; };
 		C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39BDB4A17D74891009151D4 /* CoreMotion.framework */; };
+		C3A63BDA17D9EF2D00E9DB46 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */; };
 		C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B69CB217D601850036181B /* StoreKit.framework */; };
 		C3B69CC017D6288F0036181B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CBF17D6288F0036181B /* back.png */; };
 		C3B69CC317D62AD00036181B /* slider-background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CC117D62AD00036181B /* slider-background.png */; };
@@ -62,7 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C399765817DA3BA8007EDBFB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C39BDB4A17D74891009151D4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C3B69CB217D601850036181B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C3B69CBF17D6288F0036181B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		C3B69CC117D62AD00036181B /* slider-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-background.png"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A63BDA17D9EF2D00E9DB46 /* CoreLocation.framework in Frameworks */,
 				C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */,
 				C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */,
 				C3D157D517D4BA1400BD73FB /* QuartzCore.framework in Frameworks */,
@@ -164,6 +169,7 @@
 		C3C46CC317CB49B0002F68C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */,
 				C39BDB4A17D74891009151D4 /* CoreMotion.framework */,
 				C3B69CB217D601850036181B /* StoreKit.framework */,
 				C3D157D417D4BA1400BD73FB /* QuartzCore.framework */,
@@ -248,6 +254,7 @@
 				C3EEE3FA17D76C6E00CC9B85 /* Screen-en.plist */,
 				C3C46D0F17CB4EEF002F68C5 /* Script_rus.plist */,
 				C3C46D1117CB4F03002F68C5 /* Script_arm.plist */,
+				C399765817DA3BA8007EDBFB /* Constants.h */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -442,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C399765917DA4D54007EDBFB /* Constants.h in Sources */,
 				C3C46CD117CB49B0002F68C5 /* main.m in Sources */,
 				C3C46D0317CB4B3E002F68C5 /* FairyTailReaderViewController.m in Sources */,
 				C3C46D0A17CB4E01002F68C5 /* FairyTailAppDelegate.m in Sources */,

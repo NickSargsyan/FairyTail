@@ -10,7 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <StoreKit/StoreKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FairyTailReaderViewController : UIViewController <CAAction>
+@interface FairyTailReaderViewController : UIViewController <CAAction , UIAccelerometerDelegate , CLLocationManagerDelegate>
 
 @end

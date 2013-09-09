@@ -7,26 +7,10 @@
 //
 
 #import "FairyTailReaderViewController.h"
+#import "FairyTailInteractiveMovableImageView.h"
+#import "FairyTailInteractiveRotatableImageView.h"
 #import "UIView+UserInfo.h"
-
-#define animationType @"animationType"
-
-#define isLaunchedBefore @"isLaunchedBefore"
-
-#define stageImage @"StageImage"
-#define parallaxCoefficient @"ParallaxCoefficient"
-#define stages @"Stages"
-#define rotationals @"Rotationals"
-#define rotationalImage @"RotationalImage"
-#define rotationalXCoordinate @"RotationalXCoordinate"
-#define rotationalYCoordinate @"RotationalYCoordinate"
-
-#define stageFrame CGRectMake(0, 0, 832, 562)
-
-#define firstLaunchLanguageButtonTag 100
-#define languageButtonTag 200
-#define parallaxStageTag 300
-#define rotationalTag 400
+#import "Constants.h"
 
 @interface FairyTailReaderViewController ()
 {
@@ -47,10 +31,19 @@
     NSMutableDictionary *languageDictionary;
     NSMutableDictionary *bookDictionary;
     
+    CGFloat accellX;
+    CGFloat accellZ;
+    
     CMMotionManager *motionManager;
     CMAttitude *motionAttitude;
     
     NSTimer *motionTimer;
+    
+    UIAccelerationValue gravX;
+    UIAccelerationValue gravY;
+    UIAccelerationValue gravZ;
+    UIAccelerationValue prevVelocity;
+    UIAccelerationValue prevAcce;
 }
 
 @property UIView *bookView;
@@ -80,7 +73,7 @@
         
         languageDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Language" ofType:@"plist"]];
         
-        //Inititialize device motion manager to track device rotations
+        //Inititialize device motion manager to track device rotations and accelerations
         motionManager = [[CMMotionManager alloc] init];
         motionAttitude = nil;
         
@@ -92,6 +85,11 @@
         [motionManager setAccelerometerUpdateInterval:1.0/60.0];
         [motionManager startDeviceMotionUpdates];
         [motionManager startAccelerometerUpdates];
+        
+        accellX = motionManager.accelerometerData.acceleration.x;
+        accellZ = motionManager.accelerometerData.acceleration.y;
+        
+        gravX = gravY = gravZ = prevVelocity = prevAcce = 0.f;
         
         
 //        motionTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0)
@@ -374,7 +372,11 @@
         {
             NSLog(@"%@", [rotationalDictionary debugDescription]);
             
-            UIImageView *rotationalView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
+            FairyTailInteractiveRotatableImageView *rotationalView = [[FairyTailInteractiveRotatableImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
+            
+            //Pass rotation coefficient via userInfo
+            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640], rotationCoefficient, nil]];
+            
             [rotationalView setFrame:CGRectOffset([rotationalView frame], [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue], [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue])];
             [rotationalView setTag:rotationalCount + rotationalTag];
             [stageView addSubview:rotationalView];
@@ -680,6 +682,14 @@
 #pragma mark -
 #pragma mark - Motion Manager Methods
 
+- (UIAccelerationValue)tendToZero:(UIAccelerationValue)value {
+    if (value < 0) {
+        return ceil(value);
+    } else {
+        return floor(value);
+    }
+}
+
 - (void)getDeviceGLRotationMatrixWithAcceleration:(CMRotationRate)rotationRate
 {
     //Kip track on device motion
@@ -688,34 +698,20 @@
     CMAcceleration deviceAcceleration = motionManager.accelerometerData.acceleration;
     CMAttitude *attitude = deviceMotion.attitude;
     
-//    NSLog(@"x %f", rotationRate.x);
-//    NSLog(@"y %f", rotationRate.y);
-//    NSLog(@"z %f", rotationRate.z);
-    
     if (motionAttitude != nil) [attitude multiplyByInverseOfAttitude:motionAttitude];
-    
-//    NSLog(@"roll %f", attitude.roll);
-//    NSLog(@"pitch %f", attitude.pitch);
-//    NSLog(@"yaw %f", attitude.yaw);
-    
-    NSLog(@"x %f", deviceAcceleration.x);
-    NSLog(@"y %f", deviceAcceleration.y);
     
     for (int i = 0 ; i < stageNumber ; i++)
     {
         //Perform parallax
         UIView *stage = (UIView *)[bookView viewWithTag:parallaxStageTag + i];
-        
-        if (deviceAcceleration.x < 1.0 && deviceAcceleration.y < 1.0)
-        {
-            NSNumber *coefficient = (NSNumber *)[[stage userInfo] valueForKey:parallaxCoefficient];
-            CGFloat sign = (attitude.yaw * attitude.pitch > 0) ? 1 : -1;
-            CGFloat pitch = sin(attitude.pitch) * sin(attitude.pitch);
-            CGFloat yaw = sin(attitude.yaw) * sin(attitude.yaw);
-            CGFloat root = sqrt(pitch + yaw);
-            CGFloat angle = sign * root * [coefficient floatValue];
-            [stage setFrame:CGRectOffset(stageFrame, angle, 0)];
-        }
+
+        NSNumber *coefficient = (NSNumber *)[[stage userInfo] valueForKey:parallaxCoefficient];
+        CGFloat sign = ((attitude.yaw + attitude.pitch) > 0) ? 1 : -1;
+        CGFloat pitch = sin(attitude.pitch) * sin(attitude.pitch);
+        CGFloat yaw = sin(attitude.yaw) * sin(attitude.yaw);
+        CGFloat root = sqrt(pitch + yaw);
+        CGFloat angle = sign * root * [coefficient floatValue];
+        [stage setFrame:CGRectOffset(stageFrame, angle, 0)];
         
         for (int j = 0 ; j < rotationalNumber ; j++)
         {
@@ -724,6 +720,9 @@
             [rotational setTransform:CGAffineTransformMakeRotation([attitude pitch] * [attitude roll])];
         }
     }
+    
+    accellX = deviceAcceleration.x;
+    accellZ = deviceAcceleration.z;
 }
 
 @end
