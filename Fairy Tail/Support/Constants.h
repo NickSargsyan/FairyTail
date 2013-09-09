@@ -9,9 +9,9 @@
 #ifndef Fairy_Tail_Constants_h
 #define Fairy_Tail_Constants_h
 
-#define floorCoordinate @"floorCoordinate"
-#define ceilingCoordinate @"ceilingCoordinate"
 #define rotationCoefficient @"rotationCoefficient"
+#define seilKey @"seilKey"
+#define floorKey @"floorKey"
 
 #define animationType @"animationType"
 

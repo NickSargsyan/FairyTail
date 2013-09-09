@@ -66,26 +66,11 @@
 
 - (void)performCustomAnimation
 {
-    angleCoefficient = (angleCoefficient + 1) % viewRotationCoefficient;
+    angleCoefficient = (angleCoefficient + 1) % 640;
     
     if (isAnimationAllowed)
     {
-        //Perform button animations
-        CAKeyframeAnimation *buttonSlideInAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-        [buttonSlideInAnimation setValues:[NSArray arrayWithObjects:oldOrigin,
-                                           middleOrigin,
-                                           newOrigin,
-                                           nil]];
-        [buttonSlideInAnimation setKeyTimes:[NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f],
-                                             [NSNumber numberWithFloat:0.6f],
-                                             [NSNumber numberWithFloat:1.0f],
-                                             nil]];
-        [buttonSlideInAnimation setRemovedOnCompletion:NO];
-        [buttonSlideInAnimation setFillMode:kCAFillModeBackwards];
-        [buttonSlideInAnimation setDuration:0.4f];
-        [buttonSlideInAnimation setDelegate:self];
-        [buttonSlideInAnimation setValue:@"buttonSlideInAnimation" forKey:animationType];
-        [languageButton.layer addAnimation:buttonSlideInAnimation forKey:nil];
+        [self setTransform:CGAffineTransformMakeRotation(2 * angleCoefficient * M_PI / 640)];
     }
 }
 

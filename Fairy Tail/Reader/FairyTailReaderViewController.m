@@ -372,12 +372,16 @@
         {
             NSLog(@"%@", [rotationalDictionary debugDescription]);
             
-            FairyTailInteractiveRotatableImageView *rotationalView = [[FairyTailInteractiveRotatableImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
+            FairyTailInteractiveMovableImageView *rotationalView = [[FairyTailInteractiveMovableImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
             
             //Pass rotation coefficient via userInfo
-            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640], rotationCoefficient, nil]];
+            [rotationalView setUserInteractionEnabled:YES];
+            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640],rotationCoefficient,
+                                                                                    [NSNumber numberWithInteger:0],seilKey,
+                                         [NSNumber numberWithInteger:300],floorKey,
+                                                                                    nil]];
             
-            [rotationalView setFrame:CGRectOffset([rotationalView frame], [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue], [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue])];
+            //[rotationalView setFrame:CGRectOffset([rotationalView frame], [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue], [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue])];
             [rotationalView setTag:rotationalCount + rotationalTag];
             [stageView addSubview:rotationalView];
             
