@@ -71,7 +71,7 @@
     if (isAnimationAllowed)
     {
         //Perform button animations
-        CAKeyframeAnimation buttonSlideInAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+        CAKeyframeAnimation *buttonSlideInAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
         [buttonSlideInAnimation setValues:[NSArray arrayWithObjects:oldOrigin,
                                            middleOrigin,
                                            newOrigin,
