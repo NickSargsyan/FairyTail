@@ -376,9 +376,10 @@
             
             //Pass rotation coefficient via userInfo
             [rotationalView setUserInteractionEnabled:YES];
-            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640],rotationCoefficient,
-                                                                                    [NSNumber numberWithInteger:0],seilKey,
-                                         [NSNumber numberWithInteger:300],floorKey,
+            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0],
+                                                                                    seilKey,
+                                                                                    [NSNumber numberWithInteger:300],
+                                                                                    floorKey,
                                                                                     nil]];
             
             //[rotationalView setFrame:CGRectOffset([rotationalView frame], [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue], [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue])];
@@ -387,6 +388,20 @@
             
             rotationalCount--;
         }
+        
+        //DEMO
+        FairyTailInteractiveRotatableImageView *rotationalView = [[FairyTailInteractiveRotatableImageView alloc] initWithImage:[UIImage imageNamed:@"wheel.jpg"]];
+        
+        //Pass rotation coefficient via userInfo
+        [rotationalView setUserInteractionEnabled:YES];
+        [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640],
+                                                                                rotationCoefficient,
+                                                                                nil]];
+        [rotationalView setFrame:CGRectMake(50, 200, 100, 100)];
+        [stageView addSubview:rotationalView];
+        //!DEMO
+        
+        
         
         rotationalNumber = rotationalNumber + [rotationalsDictionary count];
         

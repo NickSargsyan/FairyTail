@@ -16,6 +16,12 @@
     
     BOOL isAnimationAllowed;
     
+    CGPoint point;
+    
+    CGFloat velocity;
+    
+    CGAffineTransform rotateTransformation;
+    
     NSInteger viewRotationCoefficient;
     NSInteger angleCoefficient;
 }
@@ -33,7 +39,18 @@
     if (self) {
         // Initialization code
         
+        rotateTransformation = CGAffineTransformMakeRotation(0);
+    }
+    return self;
+}
+
+- (id)initWithImage:(UIImage *)image
+{
+    self = [super initWithImage:image];
+    if (self) {
+        // Initialization code
         
+        rotateTransformation = CGAffineTransformMakeRotation(0);
     }
     return self;
 }
@@ -70,7 +87,8 @@
     
     if (isAnimationAllowed)
     {
-        [self setTransform:CGAffineTransformMakeRotation(2 * angleCoefficient * M_PI / 640)];
+        rotateTransformation = CGAffineTransformRotate(rotateTransformation, 2 * M_PI / 640);
+        [self setTransform:rotateTransformation];
     }
 }
 
@@ -79,22 +97,39 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    isAnimationAllowed = NO;
     
+    point = [[touches anyObject] locationInView:self];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    UITouch *concreteTouch = [touches anyObject];
+    CGPoint touchPoint = [concreteTouch locationInView:self];
     
+    CGFloat velocityXVector = point.x - touchPoint.x;
+    CGFloat velocityYVector = point.y - touchPoint.y;
+    
+    NSInteger sign = velocityXVector + velocityYVector > 0 ? 1 : -1;
+    
+    velocity = sqrt(velocityXVector * velocityXVector + velocityYVector * velocityYVector);
+    
+    NSLog(@"%f" , velocity / M_PI);
+    
+    rotateTransformation = CGAffineTransformRotate(rotateTransformation, sign * velocity / 36);
+    [self setTransform:rotateTransformation];
+    
+    point = touchPoint;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    isAnimationAllowed  = YES;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    isAnimationAllowed = YES;
 }
 
 @end
