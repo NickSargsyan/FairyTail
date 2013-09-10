@@ -333,6 +333,7 @@
     
     bookDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Book" ofType:@"plist"]];
     
+    currentPageNumber = 0;
     totalPageNumber = [bookDictionary count];
 
     //Construct first page
@@ -363,7 +364,7 @@
         [stageImageView setImage:[UIImage imageNamed:[stageDictionary valueForKey:stageImage]]];
         [stageView addSubview:stageImageView];
         
-        //Add rotatables to stafe
+        //Add rotatationals to stage
         NSMutableDictionary *rotationalsDictionary = [stageDictionary objectForKey:rotationals];
         
         NSInteger rotationalCount = [rotationalsDictionary count] - 1;
@@ -372,36 +373,58 @@
         {
             NSLog(@"%@", [rotationalDictionary debugDescription]);
             
-            FairyTailInteractiveMovableImageView *rotationalView = [[FairyTailInteractiveMovableImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
+            UIImageView *rotationalView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[rotationalDictionary valueForKey:rotationalImage]]];
             
-            //Pass rotation coefficient via userInfo
-            [rotationalView setUserInteractionEnabled:YES];
-            [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0],
-                                                                                    seilKey,
-                                                                                    [NSNumber numberWithInteger:300],
-                                                                                    floorKey,
-                                                                                    nil]];
+            CGFloat XCoordinate = [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue];
+            CGFloat YCoordinate = [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue];
             
-            //[rotationalView setFrame:CGRectOffset([rotationalView frame], [[rotationalDictionary valueForKey:rotationalXCoordinate] floatValue], [[rotationalDictionary valueForKey:rotationalYCoordinate] floatValue])];
+            [rotationalView setFrame:CGRectOffset(rotationalView.frame, XCoordinate, YCoordinate)];
+            
             [rotationalView setTag:rotationalCount + rotationalTag];
             [stageView addSubview:rotationalView];
             
             rotationalCount--;
         }
         
-        //DEMO
-        FairyTailInteractiveRotatableImageView *rotationalView = [[FairyTailInteractiveRotatableImageView alloc] initWithImage:[UIImage imageNamed:@"wheel.jpg"]];
+        //Add rotatables to stage
+        NSMutableDictionary *rotatablesDictionary = [stageDictionary objectForKey:rotatables];
         
-        //Pass rotation coefficient via userInfo
-        [rotationalView setUserInteractionEnabled:YES];
-        [rotationalView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:640],
-                                                                                rotationCoefficient,
+        for (NSDictionary *rotatableDictionary in [rotatablesDictionary allValues])
+        {
+            NSLog(@"%@", [rotatableDictionary debugDescription]);
+            
+            FairyTailInteractiveRotatableImageView *rotatableView = [[FairyTailInteractiveRotatableImageView alloc] initWithImage:[UIImage imageNamed:[rotatableDictionary valueForKey:rotatableImage]]];
+            
+            CGFloat XCoordinate = [[rotatableDictionary valueForKey:rotatableXCoordinate] floatValue];
+            CGFloat YCoordinate = [[rotatableDictionary valueForKey:rotatableYCoordinate] floatValue];
+            
+            [rotatableView setFrame:CGRectOffset(rotatableView.frame, XCoordinate, YCoordinate)];
+
+            [rotatableView setUserInteractionEnabled:YES];
+            [stageView addSubview:rotatableView];
+        }
+        
+        //Add clouds to stage
+        NSMutableDictionary *cloudsDictionary = [stageDictionary objectForKey:clouds];
+        
+        for (NSDictionary *cloudDictionary in [cloudsDictionary allValues])
+        {
+            NSLog(@"%@", [cloudDictionary debugDescription]);
+            
+            FairyTailInteractiveMovableImageView *cloudView = [[FairyTailInteractiveMovableImageView alloc] initWithImage:[UIImage imageNamed:[cloudDictionary valueForKey:cloudImage]]];
+            
+            NSNumber *ceilCoordinate = [cloudDictionary valueForKey:cloudCeilCoordinate];
+            NSNumber *floorCoordinate = [cloudDictionary valueForKey:cloudFloorCoordinate];
+            
+            [cloudView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:ceilCoordinate,
+                                                                                seilKey,
+                                                                                floorCoordinate,
+                                                                                floorKey,
                                                                                 nil]];
-        [rotationalView setFrame:CGRectMake(50, 200, 100, 100)];
-        [stageView addSubview:rotationalView];
-        //!DEMO
-        
-        
+            
+            [cloudView setUserInteractionEnabled:YES];
+            [stageView addSubview:cloudView];
+        }     
         
         rotationalNumber = rotationalNumber + [rotationalsDictionary count];
         
@@ -425,7 +448,7 @@
 
 - (void)pageScrolledLeft:(UISwipeGestureRecognizer *)swipeGesture
 {
-    if (currentPageNumber == totalPageNumber)
+    if (currentPageNumber == totalPageNumber - 1)
     {
         return;
     }
@@ -437,11 +460,25 @@
 
 - (void)bookPageChanged
 {
-    //Nothing here yet
-    CATransition *transitionAnimation = [CATransition animation];
-    [transitionAnimation setDuration:1.0f];
-    [transitionAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [transitionAnimation setType:kCATransitionFade];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        [bookView setAlpha:0.0];
+        [UIView commitAnimations];
+    });
+    
+    [[bookView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    [self constructBookPageWithNumber:currentPageNumber];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        [bookView setAlpha:1.0];
+        [UIView commitAnimations];
+    });
 }
 
 #pragma mark -

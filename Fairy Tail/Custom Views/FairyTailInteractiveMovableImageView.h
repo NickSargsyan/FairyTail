@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface FairyTailInteractiveMovableImageView : UIImageView
+@interface FairyTailInteractiveMovableImageView : UIImageView <CAAction>
 
 @end

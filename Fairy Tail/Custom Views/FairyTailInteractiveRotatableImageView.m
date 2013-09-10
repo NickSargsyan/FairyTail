@@ -17,13 +17,14 @@
     BOOL isAnimationAllowed;
     
     CGPoint point;
+    CGPoint centerPoint;
     
     CGFloat velocity;
     
     CGAffineTransform rotateTransformation;
     
-    NSInteger viewRotationCoefficient;
     NSInteger angleCoefficient;
+    NSInteger sign;
 }
 
 @end
@@ -58,9 +59,10 @@
 - (void)didMoveToSuperview
 {
     //Retrieve rotation coefficient
-    viewRotationCoefficient = [[[self userInfo] valueForKey:rotationCoefficient] integerValue];
-    
     isAnimationAllowed = YES;
+    
+    centerPoint.x = self.frame.size.width / 2;
+    centerPoint.y = self.frame.size.height / 2;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f
                                              target:self
@@ -87,7 +89,19 @@
     
     if (isAnimationAllowed)
     {
-        rotateTransformation = CGAffineTransformRotate(rotateTransformation, 2 * M_PI / 640);
+        CGFloat rotationRate;
+        
+        if (velocity > 0)
+        {
+            rotationRate = sign * velocity / centerPoint.x + 2 * M_PI / 640;
+            velocity--;
+        }
+        else
+        {
+            rotationRate = 2 * M_PI / 640;
+        }
+        
+        rotateTransformation = CGAffineTransformRotate(rotateTransformation, rotationRate);
         [self setTransform:rotateTransformation];
     }
 }
@@ -110,13 +124,38 @@
     CGFloat velocityXVector = point.x - touchPoint.x;
     CGFloat velocityYVector = point.y - touchPoint.y;
     
-    NSInteger sign = velocityXVector + velocityYVector > 0 ? 1 : -1;
+    //Determine sign of rotation
+    sign = 0;
     
+    CGFloat a = (point.y - centerPoint.y) / (point.x - centerPoint.x);
+    
+    if (a * (touchPoint.x - centerPoint.x) - (touchPoint.y - centerPoint.y) > 0)
+    {
+        if (point.x > centerPoint.x)
+        {
+            sign = -1;
+        }
+        else if (point.x < centerPoint.x)
+        {
+            sign = 1;
+        }
+    }
+    else if (a * touchPoint.x - touchPoint.y < 0)
+    {
+        if (point.x > centerPoint.x)
+        {
+            sign = 1;
+        }
+        else if (point.x < centerPoint.x)
+        {
+            sign = -1;
+        }
+    }
+    
+    //Compute velocity and perform rotation
     velocity = sqrt(velocityXVector * velocityXVector + velocityYVector * velocityYVector);
     
-    NSLog(@"%f" , velocity / M_PI);
-    
-    rotateTransformation = CGAffineTransformRotate(rotateTransformation, sign * velocity / 36);
+    rotateTransformation = CGAffineTransformRotate(rotateTransformation, sign * velocity / centerPoint.x);
     [self setTransform:rotateTransformation];
     
     point = touchPoint;

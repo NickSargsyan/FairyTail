@@ -10,18 +10,6 @@
 			<string>3.jpg</string>
 			<key>ParallaxCoefficient</key>
 			<integer>10</integer>
-			<key>Rotationals</key>
-			<dict>
-				<key>Rotational-0</key>
-				<dict>
-					<key>RotationalImage</key>
-					<string>wheel.jpg</string>
-					<key>RotationalXCoordinate</key>
-					<integer>40</integer>
-					<key>RotationalYCoordinate</key>
-					<integer>60</integer>
-				</dict>
-			</dict>
 		</dict>
 	</dict>
 	<key>Page-2</key>
@@ -42,6 +30,30 @@
 			<string>1.jpg</string>
 			<key>ParallaxCoefficient</key>
 			<integer>30</integer>
+			<key>Rotationals</key>
+			<dict>
+				<key>Rotational-0</key>
+				<dict>
+					<key>RotationalImage</key>
+					<string>appleDemo.png</string>
+					<key>RotationalXCoordinate</key>
+					<integer>400</integer>
+					<key>RotationalYCoordinate</key>
+					<integer>150</integer>
+				</dict>
+			</dict>
+			<key>Clouds</key>
+			<dict>
+				<key>Cloud-0</key>
+				<dict>
+					<key>CloudImage</key>
+					<string>cloudDemo2.png</string>
+					<key>CeilCoordinate</key>
+					<string>0</string>
+					<key>FloorCoordinate</key>
+					<string>100</string>
+				</dict>
+			</dict>
 		</dict>
 	</dict>
 	<key>Page-0</key>
@@ -57,11 +69,35 @@
 				<key>Rotational-0</key>
 				<dict>
 					<key>RotationalImage</key>
-					<string>wheel.jpg</string>
+					<string>appleDemo.png</string>
 					<key>RotationalXCoordinate</key>
-					<integer>40</integer>
+					<integer>770</integer>
 					<key>RotationalYCoordinate</key>
-					<integer>60</integer>
+					<integer>250</integer>
+				</dict>
+			</dict>
+			<key>Rotatables</key>
+			<dict>
+				<key>Rotatable-0</key>
+				<dict>
+					<key>RotatableImage</key>
+					<string>windmillWheelDemo.png</string>
+					<key>RotatableXCoordinate</key>
+					<integer>20</integer>
+					<key>RotatableYCoordinate</key>
+					<integer>200</integer>
+				</dict>
+			</dict>
+			<key>Clouds</key>
+			<dict>
+				<key>Cloud-0</key>
+				<dict>
+					<key>CloudImage</key>
+					<string>cloudDemo2.png</string>
+					<key>CeilCoordinate</key>
+					<string>0</string>
+					<key>FloorCoordinate</key>
+					<string>200</string>
 				</dict>
 			</dict>
 		</dict>

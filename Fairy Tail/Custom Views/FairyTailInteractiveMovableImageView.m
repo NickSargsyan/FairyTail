@@ -66,7 +66,7 @@
                                              target:self
                                            selector:@selector(performCustomAnimation)
                                            userInfo:nil
-                                            repeats:YES];    
+                                            repeats:YES];
 }
 
 /*
@@ -125,6 +125,13 @@
                 }
                 if(velocityY==0 && velocityX==0)
                     moveEnded=NO;
+                
+                if (self.frame.origin.y > floor)
+                {
+                    isAnimationAllowed = NO;
+                    [self setUserInteractionEnabled:NO];
+                    [self performNormalisingAnimation];
+                }
             }
             else
             {
@@ -133,6 +140,21 @@
         }
     }
     count--;
+}
+
+- (void)performNormalisingAnimation
+{
+    CGFloat x = arc4random() % (int)self.superview.frame.size.width;
+    CGFloat y = arc4random() % (int)(floor - seil) + seil;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        [UIView setAnimationDelegate:self];
+        [self setFrame:CGRectMake(x, y, self.frame.size.width, self.frame.size.height)];
+        [UIView commitAnimations];
+    });
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -155,6 +177,12 @@
     [self setFrame:CGRectOffset(self.frame, [touch locationInView:self].x-point.x, [touch locationInView:self].y-point.y)];
     point = [touch locationInView:self];
     touchSum++;
+    
+    if (self.frame.origin.y > floor)
+    {
+        [self setUserInteractionEnabled:NO];
+        [self performNormalisingAnimation];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -173,8 +201,27 @@
 {
     //velocityX = (point.x-point1.x)/2;
     //velocityY = (point.y-point1.y)/2;
+    velocityX = way.width/touchSum * 2;
+    velocityY = way.height/touchSum * 2;
     isAnimationAllowed = YES;
     moveEnded = YES;
+}
+
+#pragma mark -
+#pragma mark - CAAction Methods
+
+- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag
+{
+    velocityX = 0;
+    velocityY = 0;
+    moveEnded = NO;
+    isAnimationAllowed = YES;
+    [self setUserInteractionEnabled:YES];
+}
+
+- (void)runActionForKey:(NSString *)event object:(id)anObject arguments:(NSDictionary *)dict
+{
+    
 }
 
 @end

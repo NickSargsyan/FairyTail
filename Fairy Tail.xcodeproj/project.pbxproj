@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C399765917DA4D54007EDBFB /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = C399765817DA3BA8007EDBFB /* Constants.h */; };
+		C39B096417DF41F50022385D /* cloudDemo1.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096217DF41F50022385D /* cloudDemo1.png */; };
+		C39B096517DF41F50022385D /* cloudDemo2.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096317DF41F50022385D /* cloudDemo2.png */; };
+		C39B096917DF482A0022385D /* appleDemo.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096617DF482A0022385D /* appleDemo.png */; };
+		C39B096B17DF482A0022385D /* windmillWheelDemo.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096817DF482A0022385D /* windmillWheelDemo.png */; };
+		C39B097017DF5B200022385D /* FairyTailAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39B096E17DF5B200022385D /* FairyTailAboutViewController.m */; };
+		C39B097117DF5B200022385D /* FairyTailAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39B096F17DF5B200022385D /* FairyTailAboutViewController.xib */; };
 		C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39BDB4A17D74891009151D4 /* CoreMotion.framework */; };
 		C3A63BDA17D9EF2D00E9DB46 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */; };
 		C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B69CB217D601850036181B /* StoreKit.framework */; };
@@ -65,6 +71,13 @@
 
 /* Begin PBXFileReference section */
 		C399765817DA3BA8007EDBFB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C39B096217DF41F50022385D /* cloudDemo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudDemo1.png; sourceTree = "<group>"; };
+		C39B096317DF41F50022385D /* cloudDemo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudDemo2.png; sourceTree = "<group>"; };
+		C39B096617DF482A0022385D /* appleDemo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appleDemo.png; sourceTree = "<group>"; };
+		C39B096817DF482A0022385D /* windmillWheelDemo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windmillWheelDemo.png; sourceTree = "<group>"; };
+		C39B096D17DF5B200022385D /* FairyTailAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailAboutViewController.h; sourceTree = "<group>"; };
+		C39B096E17DF5B200022385D /* FairyTailAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailAboutViewController.m; sourceTree = "<group>"; };
+		C39B096F17DF5B200022385D /* FairyTailAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FairyTailAboutViewController.xib; sourceTree = "<group>"; };
 		C39BDB4A17D74891009151D4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C3B69CB217D601850036181B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -147,6 +160,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C39B096C17DF5AFB0022385D /* About */ = {
+			isa = PBXGroup;
+			children = (
+				C39B096D17DF5B200022385D /* FairyTailAboutViewController.h */,
+				C39B096E17DF5B200022385D /* FairyTailAboutViewController.m */,
+				C39B096F17DF5B200022385D /* FairyTailAboutViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		C3C46CB817CB49B0002F68C5 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +209,7 @@
 			children = (
 				C3EEE3F317D7628400CC9B85 /* Custom Views */,
 				C3C46CFF17CB4B2E002F68C5 /* Reader */,
+				C39B096C17DF5AFB0022385D /* About */,
 				C3C46D0917CB4E01002F68C5 /* Support */,
 				C3C46D1B17CCAB78002F68C5 /* Images */,
 				C3C46D0617CB4E01002F68C5 /* Fairy Tail Delegate */,
@@ -289,6 +313,10 @@
 		C3C46D2317CCC16D002F68C5 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				C39B096617DF482A0022385D /* appleDemo.png */,
+				C39B096817DF482A0022385D /* windmillWheelDemo.png */,
+				C39B096217DF41F50022385D /* cloudDemo1.png */,
+				C39B096317DF41F50022385D /* cloudDemo2.png */,
 				C3C46D2417CCC16D002F68C5 /* 0.jpg */,
 				C3C46D2517CCC16D002F68C5 /* 1.jpg */,
 				C3C46D2617CCC16D002F68C5 /* 2.jpg */,
@@ -415,6 +443,11 @@
 				C3B69CC417D62AD00036181B /* slider-pin.png in Resources */,
 				C3EEE3FB17D76C6E00CC9B85 /* Screen-en.plist in Resources */,
 				C3EEE40017D77EC800CC9B85 /* wheel.jpg in Resources */,
+				C39B096417DF41F50022385D /* cloudDemo1.png in Resources */,
+				C39B096517DF41F50022385D /* cloudDemo2.png in Resources */,
+				C39B096917DF482A0022385D /* appleDemo.png in Resources */,
+				C39B096B17DF482A0022385D /* windmillWheelDemo.png in Resources */,
+				C39B097117DF5B200022385D /* FairyTailAboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +489,7 @@
 				C3EEE3F617D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m in Sources */,
 				C3EEE3F917D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m in Sources */,
 				C3EEE3FE17D7749F00CC9B85 /* UIView+UserInfo.m in Sources */,
+				C39B097017DF5B200022385D /* FairyTailAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
