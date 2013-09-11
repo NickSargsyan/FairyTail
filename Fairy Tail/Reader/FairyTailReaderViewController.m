@@ -9,6 +9,7 @@
 #import "FairyTailReaderViewController.h"
 #import "FairyTailInteractiveMovableImageView.h"
 #import "FairyTailInteractiveRotatableImageView.h"
+#import "FairyTailAboutViewController.h"
 #import "UIView+UserInfo.h"
 #import "Constants.h"
 
@@ -18,7 +19,6 @@
     NSInteger totalPageNumber;
     
     NSInteger stageNumber;
-    NSInteger rotationalNumber;
     
     NSString *languageCode;
     
@@ -349,8 +349,6 @@
     //Add stages
     NSInteger stageCount = [pageDictionary count] - 1;
     
-    rotationalNumber = 0;
-
     for (NSDictionary *stageDictionary in [pageDictionary allValues])
     {
         NSLog(@"%@", [stageDictionary debugDescription]);
@@ -368,6 +366,9 @@
         NSMutableDictionary *rotationalsDictionary = [stageDictionary objectForKey:rotationals];
         
         NSInteger rotationalCount = [rotationalsDictionary count] - 1;
+        
+        [stageView setUserInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:rotationalCount]
+                                                           forKey:rotationalNumberInStage]];
         
         for (NSDictionary *rotationalDictionary in [rotationalsDictionary allValues])
         {
@@ -425,8 +426,6 @@
             [cloudView setUserInteractionEnabled:YES];
             [stageView addSubview:cloudView];
         }     
-        
-        rotationalNumber = rotationalNumber + [rotationalsDictionary count];
         
         stageCount--;
     }
@@ -507,6 +506,7 @@
     UIButton *simplyButton = [[UIButton alloc] initWithFrame:CGRectMake(920, 17, 92, 14)];
     [simplyButton setBackgroundColor:[UIColor clearColor]];
     [simplyButton setImage:[UIImage imageNamed:@"simply-small.png"] forState:UIControlStateNormal];
+    [simplyButton addTarget:self action:@selector(aboutButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [innerSettingsView addSubview:simplyButton];
     
     upperSettingsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 48)];
@@ -609,6 +609,13 @@
 - (IBAction)backButtonClicked:(id)sender
 {
     [self showTitle];
+}
+
+- (IBAction)aboutButtonClicked:(id)sender
+{
+    FairyTailAboutViewController *aboutViewController = [[FairyTailAboutViewController alloc] init];
+    
+    [[self navigationController] presentViewController:aboutViewController animated:YES completion:nil];
 }
 
 - (IBAction)languageSettings:(id)sender
@@ -768,6 +775,8 @@
         CGFloat root = sqrt(pitch + yaw);
         CGFloat angle = sign * root * [coefficient floatValue];
         [stage setFrame:CGRectOffset(stageFrame, angle, 0)];
+        
+        NSInteger rotationalNumber = [[[stage userInfo] valueForKey:rotationalNumberInStage] integerValue];
         
         for (int j = 0 ; j < rotationalNumber ; j++)
         {

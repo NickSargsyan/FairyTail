@@ -9,6 +9,8 @@
 #ifndef Fairy_Tail_Constants_h
 #define Fairy_Tail_Constants_h
 
+#define rotationalNumberInStage @"rotationalNumberInStage"
+
 #define seilKey @"seilKey"
 #define floorKey @"floorKey"
 
