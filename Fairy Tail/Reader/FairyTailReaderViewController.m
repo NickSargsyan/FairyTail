@@ -745,14 +745,6 @@
 #pragma mark -
 #pragma mark - Motion Manager Methods
 
-- (UIAccelerationValue)tendToZero:(UIAccelerationValue)value {
-    if (value < 0) {
-        return ceil(value);
-    } else {
-        return floor(value);
-    }
-}
-
 - (void)getDeviceGLRotationMatrixWithAcceleration:(CMRotationRate)rotationRate
 {
     //Kip track on device motion

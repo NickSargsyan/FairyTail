@@ -2,6 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Title</key>
+	<dict>
+		<key>Stage-0</key>
+		<dict>
+			<key>StageImage</key>
+			<string>0.jpg</string>
+			<key>Clouds</key>
+			<dict>
+				<key>Cloud-0</key>
+				<dict>
+					<key>CloudImage</key>
+					<string>cloudDemo2.png</string>
+					<key>CeilCoordinate</key>
+					<string>0</string>
+					<key>FloorCoordinate</key>
+					<string>100</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
 	<key>Page-3</key>
 	<dict>
 		<key>Stage-0</key>
