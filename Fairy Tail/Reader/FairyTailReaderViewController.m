@@ -12,6 +12,10 @@
 #import "FairyTailAboutViewController.h"
 #import "UIView+UserInfo.h"
 #import "Constants.h"
+#import "JSON.h"
+#import "NSString+SBJSON.h"
+#import "AFHTTPClient.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface FairyTailReaderViewController ()
 {
@@ -54,6 +58,8 @@
 
 @property UISlider *volumeSlider;
 
+@property UIScrollView *titleScrollView;
+
 @end
 
 @implementation FairyTailReaderViewController
@@ -64,6 +70,7 @@
 @synthesize upperSettingsView = upperSettingsView;
 @synthesize innerSettingsView = innerSettingsView;
 @synthesize volumeSlider = volumeSlider;
+@synthesize titleScrollView = titleScrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,13 +97,6 @@
         accellZ = motionManager.accelerometerData.acceleration.y;
         
         gravX = gravY = gravZ = prevVelocity = prevAcce = 0.f;
-        
-        
-//        motionTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0)
-//                                                          target:self
-//                                                        selector:@selector(getDeviceGLRotationMatrix)
-//                                                        userInfo:nil
-//                                                         repeats:YES];
         
         [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
@@ -236,22 +236,22 @@
 {
     if (!titleView)
     {
+        bookDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Book" ofType:@"plist"]];
+        
         titleView = [[UIView alloc] initWithFrame:[[self view] frame]];
         [titleView setAlpha:0.0f];
+        [titleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginReading:)]];
         
-        UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1025, 748)];
-        [titleImageView setImage:[UIImage imageNamed:@"0.jpg"]];
-        [titleImageView setContentMode:UIViewContentModeScaleAspectFit];
-        [titleImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginReading:)]];
-        [titleImageView setUserInteractionEnabled:YES];
-        [titleView addSubview:titleImageView];
+        [self constructBookPageWithNumber:0];
         
-        UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 548, 1024, 200)];
+        titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 548, 1024, 200)];
         [titleScrollView setBackgroundColor:[UIColor colorWithRed:0.5
                                                           green:0.1
                                                           blue:0.4
                                                           alpha:0.7]];
         [titleView addSubview:titleScrollView];
+        
+        [self loadTitleScrollViewItems];
         
         [[self view] addSubview:titleView];
     }
@@ -270,6 +270,36 @@
         }
         
         [UIView commitAnimations];
+    });
+}
+
+- (void)loadTitleScrollViewItems
+{    
+    dispatch_async(dispatch_get_current_queue(), ^{
+        
+        AFHTTPClient *httpClient = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:serverBaseUrl]];
+        NSDictionary *params = @{};
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:serverStoryDataAddress parameters:params];
+        
+        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+                NSDictionary *responseDictionary = nil;
+            
+                @try {
+                    responseDictionary = [NSJSONSerialization JSONObjectWithData:(NSData *)responseObject options:NSJSONReadingAllowFragments error:nil];
+                }
+                @catch (NSException *exception) {
+                    
+                }
+            
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            }
+        ];
+        [requestOperation start];
+        
     });
 }
 
@@ -331,13 +361,11 @@
     [bookView setClipsToBounds:YES];
     [bookView setGestureRecognizers:[[NSArray alloc] initWithObjects:leftGestureRecognizer, rightGestureRecognizer, nil]];
     
-    bookDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Book" ofType:@"plist"]];
-    
-    currentPageNumber = 0;
+    currentPageNumber = 1;
     totalPageNumber = [bookDictionary count];
 
     //Construct first page
-    [self constructBookPageWithNumber:0];
+    [self constructBookPageWithNumber:currentPageNumber];
     
     [readerView addSubview:bookView];
 }
@@ -353,12 +381,30 @@
     {
         NSLog(@"%@", [stageDictionary debugDescription]);
         
-        UIView *stageView = [[UIView alloc] initWithFrame:stageFrame];
+        UIView *stageView;
+        
+        if (pageNumber == 0)
+        {
+            stageView = [[UIView alloc] initWithFrame:titleFrame];
+        }
+        else
+        {
+            stageView  = [[UIView alloc] initWithFrame:stageFrame];
+        }
+        
         [stageView setUserInfo:[NSDictionary dictionaryWithObject:[stageDictionary valueForKey:parallaxCoefficient] forKey:parallaxCoefficient]];
         [stageView setTag:stageCount + parallaxStageTag];
-        [bookView addSubview:stageView];
         
-        UIImageView *stageImageView = [[UIImageView alloc] initWithFrame:stageFrame];
+        if (pageNumber == 0)
+        {
+            [titleView addSubview:stageView];
+        }
+        else
+        {
+            [bookView addSubview:stageView];
+        }
+        
+        UIImageView *stageImageView = [[UIImageView alloc] initWithFrame:stageView.frame];
         [stageImageView setImage:[UIImage imageNamed:[stageDictionary valueForKey:stageImage]]];
         [stageView addSubview:stageImageView];
         
@@ -435,7 +481,7 @@
 
 - (void)pageScrolledRight:(UISwipeGestureRecognizer *)swipeGesture
 {
-    if (currentPageNumber == 0)
+    if (currentPageNumber == 1)
     {
         return;
     }

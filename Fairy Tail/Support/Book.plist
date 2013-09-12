@@ -2,27 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Title</key>
-	<dict>
-		<key>Stage-0</key>
-		<dict>
-			<key>StageImage</key>
-			<string>0.jpg</string>
-			<key>Clouds</key>
-			<dict>
-				<key>Cloud-0</key>
-				<dict>
-					<key>CloudImage</key>
-					<string>cloudDemo2.png</string>
-					<key>CeilCoordinate</key>
-					<string>0</string>
-					<key>FloorCoordinate</key>
-					<string>100</string>
-				</dict>
-			</dict>
-		</dict>
-	</dict>
-	<key>Page-3</key>
+	<key>Page-4</key>
 	<dict>
 		<key>Stage-0</key>
 		<dict>
@@ -32,7 +12,7 @@
 			<integer>10</integer>
 		</dict>
 	</dict>
-	<key>Page-2</key>
+	<key>Page-3</key>
 	<dict>
 		<key>Stage-0</key>
 		<dict>
@@ -42,7 +22,7 @@
 			<integer>25</integer>
 		</dict>
 	</dict>
-	<key>Page-1</key>
+	<key>Page-2</key>
 	<dict>
 		<key>Stage-0</key>
 		<dict>
@@ -76,7 +56,7 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>Page-0</key>
+	<key>Page-1</key>
 	<dict>
 		<key>Stage-0</key>
 		<dict>
@@ -118,6 +98,28 @@
 					<string>0</string>
 					<key>FloorCoordinate</key>
 					<string>200</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+	<key>Page-0</key>
+	<dict>
+		<key>Stage-0</key>
+		<dict>
+			<key>StageImage</key>
+			<string>0.jpg</string>
+			<key>ParallaxCoefficient</key>
+			<string>0</string>
+			<key>Clouds</key>
+			<dict>
+				<key>Cloud-0</key>
+				<dict>
+					<key>CloudImage</key>
+					<string>cloudDemo2.png</string>
+					<key>CeilCoordinate</key>
+					<string>0</string>
+					<key>FloorCoordinate</key>
+					<string>100</string>
 				</dict>
 			</dict>
 		</dict>

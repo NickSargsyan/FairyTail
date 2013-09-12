@@ -20,7 +20,6 @@
     CGFloat seil;
     CGFloat floor;
     CGPoint point;
-    //CGPoint point1;
     NSInteger count;
     CGSize way;
     NSInteger touchSum;
@@ -169,14 +168,13 @@
     way.height = 0;
     isAnimationAllowed = NO;
     point = [[touches anyObject] locationInView:self];
-    //point1 = [[touches anyObject] locationInView:self];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch * touch = [touches anyObject];
     
-    if(allowed /*&& CGRectContainsPoint(self.frame, [touch locationInView:self])*/)
+    if(allowed)
     {
         if (self.frame.origin.y > floor)
         {
@@ -185,13 +183,12 @@
             isAnimationAllowed = NO;
             [super touchesCancelled:touches withEvent:event];
             [self performNormalisingAnimation];
-            NSLog(@"Overscroll");
             return;
         }
         
         //point1 = point;
-        way.width+=[touch locationInView:self].x-point.x;
-        way.height+=[touch locationInView:self].y-point.y;
+        way.width = [touch locationInView:self].x - point.x;
+        way.height = [touch locationInView:self].y - point.y;
         NSLog(@"Touch x = %f" , [touch locationInView:self].x);
         NSLog(@"Touch y = %f" , [touch locationInView:self].y);
         NSLog(@"Point x = %f" , point.x);
@@ -204,13 +201,11 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //velocityX = (point.x-point1.x)/2;
-    //velocityY = (point.y-point1.y)/2;
     moveEnded = YES;
     if (!allowed)
     {
-        velocityX = way.width/touchSum * 2;
-        velocityY = way.height/touchSum * 2;
+        velocityX = way.width;
+        velocityY = way.height;
         [self setUserInteractionEnabled:YES];
         allowed = YES;
         moveEnded = NO;
@@ -220,13 +215,11 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //velocityX = (point.x-point1.x)/2;
-    //velocityY = (point.y-point1.y)/2;
     moveEnded = YES;
     if (!allowed)
     {
-        velocityX = way.width/touchSum * 2;
-        velocityY = way.height/touchSum * 2;
+        velocityX = way.width;
+        velocityY = way.height;
         [self setUserInteractionEnabled:YES];
         allowed = YES;
         moveEnded = NO;

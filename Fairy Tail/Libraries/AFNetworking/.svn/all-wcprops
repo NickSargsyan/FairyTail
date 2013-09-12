@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking
+END
+AFHTTPClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFHTTPClient.m
+END
+AFNetworking.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFNetworking.h
+END
+AFXMLRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFXMLRequestOperation.h
+END
+UIImageView+AFNetworking.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/UIImageView+AFNetworking.h
+END
+AFNetworkActivityIndicatorManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFNetworkActivityIndicatorManager.h
+END
+AFXMLRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFXMLRequestOperation.m
+END
+UIImageView+AFNetworking.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/UIImageView+AFNetworking.m
+END
+AFJSONRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFJSONRequestOperation.h
+END
+AFNetworkActivityIndicatorManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFNetworkActivityIndicatorManager.m
+END
+AFURLConnectionOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFURLConnectionOperation.h
+END
+AFJSONRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFJSONRequestOperation.m
+END
+AFURLConnectionOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFURLConnectionOperation.m
+END
+AFHTTPRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFHTTPRequestOperation.h
+END
+AFPropertyListRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFPropertyListRequestOperation.h
+END
+AFImageRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFImageRequestOperation.h
+END
+AFHTTPRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFHTTPRequestOperation.m
+END
+AFHTTPClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFHTTPClient.h
+END
+AFPropertyListRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFPropertyListRequestOperation.m
+END
+AFImageRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/yidio-iphone/!svn/ver/1240/trunk/App/Yidio%20App/YidioApp/Libraries/AFNetworking/AFImageRequestOperation.m
+END

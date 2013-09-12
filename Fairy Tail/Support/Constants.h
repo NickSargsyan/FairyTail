@@ -38,10 +38,14 @@
 #define cloudFloorCoordinate @"FloorCoordinate"
 
 #define stageFrame CGRectMake(0, 0, 832, 562)
+#define titleFrame CGRectMake(0, 0, 1024, 748)
 
 #define firstLaunchLanguageButtonTag 100
 #define languageButtonTag 200
 #define parallaxStageTag 300
 #define rotationalTag 400
+
+#define serverBaseUrl @"www.example.com"
+#define serverStoryDataAddress @".../..."
 
 #endif
