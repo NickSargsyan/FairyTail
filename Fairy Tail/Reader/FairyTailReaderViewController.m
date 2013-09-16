@@ -9,6 +9,7 @@
 #import "FairyTailReaderViewController.h"
 #import "FairyTailInteractiveMovableImageView.h"
 #import "FairyTailInteractiveRotatableImageView.h"
+#import "FairyTailInteractiveLeafImageView.h"
 #import "FairyTailAboutViewController.h"
 #import "UIView+UserInfo.h"
 #import "Constants.h"
@@ -353,8 +354,10 @@
     //Initialize swipe gestures to navigate between pages
     UISwipeGestureRecognizer *rightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pageScrolledRight:)];
     [rightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [rightGestureRecognizer setNumberOfTouchesRequired:2];
     UISwipeGestureRecognizer *leftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pageScrolledLeft:)];
     [leftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [leftGestureRecognizer setNumberOfTouchesRequired:2];
     
     bookView = [[UIView alloc] initWithFrame:CGRectMake(95, 93, 832, 562)];
     [bookView setUserInteractionEnabled:YES];
@@ -413,7 +416,7 @@
         
         NSInteger rotationalCount = [rotationalsDictionary count] - 1;
         
-        [stageView setUserInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:rotationalCount]
+        [stageView setUserInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(rotationalCount + 1) ]
                                                            forKey:rotationalNumberInStage]];
         
         for (NSDictionary *rotationalDictionary in [rotationalsDictionary allValues])
@@ -448,7 +451,7 @@
             [rotatableView setFrame:CGRectOffset(rotatableView.frame, XCoordinate, YCoordinate)];
 
             [rotatableView setUserInteractionEnabled:YES];
-            [stageView addSubview:rotatableView];
+            [bookView addSubview:rotatableView];
         }
         
         //Add clouds to stage
@@ -471,7 +474,32 @@
             
             [cloudView setUserInteractionEnabled:YES];
             [stageView addSubview:cloudView];
-        }     
+        }
+        
+        //Add leafs to stage
+        NSMutableDictionary *leafsDictionary = [stageDictionary objectForKey:leafs];
+        
+        for (NSDictionary *leafDictionary in [leafsDictionary allValues])
+        {
+            NSLog(@"%@", [leafDictionary debugDescription]);
+            
+            FairyTailInteractiveLeafImageView *leafView = [[FairyTailInteractiveLeafImageView alloc] initWithImage:[UIImage imageNamed:[leafDictionary valueForKey:leafImage]]];
+            
+            NSNumber *XCoordinate = [leafDictionary valueForKey:leafXCoordinate];
+            NSNumber *floorCoordinate = [leafDictionary valueForKey:leafFloorCoordinate];
+            
+            [leafView setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:floorCoordinate,
+                                                                                floorKey,
+                                                                                nil]];
+            NSLog(@"%d %d" , [XCoordinate integerValue] , [floorCoordinate integerValue]);
+            
+            [leafView setFrame:CGRectOffset(leafView.frame, [XCoordinate integerValue], [floorCoordinate integerValue])];
+            
+            NSLog(@"%f %f" , leafView.frame.origin.x , leafView.frame.origin.y);
+            
+            [leafView setUserInteractionEnabled:YES];
+            [bookView addSubview:leafView];
+        }
         
         stageCount--;
     }
@@ -820,12 +848,124 @@
         {
             //Perform rotations
             UIImageView *rotational = (UIImageView *)[stage viewWithTag:rotationalTag + j];
-            [rotational setTransform:CGAffineTransformMakeRotation([attitude pitch] * [attitude roll])];
+            [rotational setTransform:CGAffineTransformMakeRotation(-[attitude pitch])];
         }
     }
     
     accellX = deviceAcceleration.x;
     accellZ = deviceAcceleration.z;
+}
+
+#pragma mark -
+#pragma mark - Touch Methods
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    for(FairyTailInteractiveRotatableImageView *subview in [bookView subviews])
+    {
+        if([subview isKindOfClass:[FairyTailInteractiveRotatableImageView class]] && CGRectContainsPoint(subview.frame, [touch locationInView:bookView]))
+        {
+            [subview setIsAnimationAllowed:NO];
+            [subview setPoint:[[touches anyObject] locationInView:subview]];
+        }
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touch = [touches anyObject];
+    
+    for (UIView *subview in [bookView subviews])
+    {
+        if ([subview isKindOfClass:[FairyTailInteractiveLeafImageView class]] && CGRectContainsPoint(subview.frame, [touch locationInView:bookView]))
+        {
+            FairyTailInteractiveLeafImageView *view = (FairyTailInteractiveLeafImageView *)subview;
+            
+            if([view touchSum] == 0)
+            {
+                [view setPoint:[touch locationInView:subview]];
+                [view setTouchSum:1];
+            }
+            else if ([view touchSum] == 1)
+            {
+                [view setVelocityX:([touch locationInView:subview].x - [view point].x)];
+                [view setVelocityY:([touch locationInView:subview].y - [view point].y) * 2];
+                
+                NSLog(@"Velocity %f %f" , [view velocityX] , [view velocityY]);
+                
+                [view setTouchSum:20];
+                
+                [view setIsAnimationAllowed:YES];
+            }
+        }
+        
+        
+        if([subview isKindOfClass:[FairyTailInteractiveRotatableImageView class]] && CGRectContainsPoint(subview.frame, [touch locationInView:bookView]))
+        {
+            
+            FairyTailInteractiveRotatableImageView *view = (FairyTailInteractiveRotatableImageView *)subview;
+            UITouch *concreteTouch = [touches anyObject];
+            
+            if (CGRectContainsPoint(view.frame, [concreteTouch locationInView:[view superview]]))
+            {
+                return;
+            }
+            
+            CGPoint touchPoint = [concreteTouch locationInView:view];
+
+            CGFloat velocityXVector = [view point].x - touchPoint.x;
+            CGFloat velocityYVector = [view point].y - touchPoint.y;
+            
+            //Determine sign of rotation
+            [view setSign:0];
+            
+            CGFloat a = ([view point].y - [view centerPoint].y) / ([view point].x - [view centerPoint].x);
+            
+            if (a * (touchPoint.x - [view centerPoint].x) - (touchPoint.y - [view centerPoint].y) > 0)
+            {
+                if ([view point].x > [view centerPoint].x)
+                {
+                    [view setSign:-1];
+                }
+                else if ([view point].x < [view centerPoint].x)
+                {
+                    [view setSign:1];
+                }
+            }
+            else if (a * touchPoint.x - touchPoint.y < 0)
+            {
+                if ([view point].x > [view centerPoint].x)
+                {
+                    [view setSign:1];
+                }
+                else if ([view point].x < [view centerPoint].x)
+                {
+                    [view setSign:-1];
+                }
+            }
+            
+            //Compute velocity and perform rotation
+            [view setVelocity:sqrt(velocityXVector * velocityXVector + velocityYVector * velocityYVector)];
+            
+            [view setRotateTransformation:CGAffineTransformRotate([view rotateTransformation], [view sign] * ([view velocity] / [view centerPoint].x > 2 ? 2 : [view velocity] / [view centerPoint].x)) ];
+            [view setTransform:[view rotateTransformation]];
+            
+            [view setPoint:touchPoint];
+        }
+    }
+ 
+    
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
 }
 
 @end

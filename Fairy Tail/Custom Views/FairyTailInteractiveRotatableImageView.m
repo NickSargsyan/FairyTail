@@ -13,23 +13,19 @@
 @interface FairyTailInteractiveRotatableImageView()
 {
     NSTimer *timer;
-    
-    BOOL isAnimationAllowed;
-    
-    CGPoint point;
-    CGPoint centerPoint;
-    
-    CGFloat velocity;
-    
-    CGAffineTransform rotateTransformation;
-    
+
     NSInteger angleCoefficient;
-    NSInteger sign;
 }
 
 @end
 
 @implementation FairyTailInteractiveRotatableImageView
+
+@synthesize rotateTransformation = rotateTransformation;
+@synthesize isAnimationAllowed = isAnimationAllowed;
+@synthesize centerPoint = centerPoint;
+@synthesize velocity = velocity;
+@synthesize sign = sign;
 
 #pragma mark -
 #pragma mark - Initialization Methods
@@ -93,7 +89,7 @@
         
         if (velocity > 0)
         {
-            rotationRate = sign * velocity / centerPoint.x + 2 * M_PI / 640;
+            rotationRate = sign * (velocity / centerPoint.x > 2 ? 2 : velocity / centerPoint.x) + 2 * M_PI / 640;
             velocity--;
         }
         else
@@ -111,54 +107,12 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    isAnimationAllowed = NO;
-    
-    point = [[touches anyObject] locationInView:self];
+
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *concreteTouch = [touches anyObject];
-    CGPoint touchPoint = [concreteTouch locationInView:self];
-    
-    CGFloat velocityXVector = point.x - touchPoint.x;
-    CGFloat velocityYVector = point.y - touchPoint.y;
-    
-    //Determine sign of rotation
-    sign = 0;
-    
-    CGFloat a = (point.y - centerPoint.y) / (point.x - centerPoint.x);
-    
-    if (a * (touchPoint.x - centerPoint.x) - (touchPoint.y - centerPoint.y) > 0)
-    {
-        if (point.x > centerPoint.x)
-        {
-            sign = -1;
-        }
-        else if (point.x < centerPoint.x)
-        {
-            sign = 1;
-        }
-    }
-    else if (a * touchPoint.x - touchPoint.y < 0)
-    {
-        if (point.x > centerPoint.x)
-        {
-            sign = 1;
-        }
-        else if (point.x < centerPoint.x)
-        {
-            sign = -1;
-        }
-    }
-    
-    //Compute velocity and perform rotation
-    velocity = sqrt(velocityXVector * velocityXVector + velocityYVector * velocityYVector);
-    
-    rotateTransformation = CGAffineTransformRotate(rotateTransformation, sign * velocity / centerPoint.x);
-    [self setTransform:rotateTransformation];
-    
-    point = touchPoint;
+
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

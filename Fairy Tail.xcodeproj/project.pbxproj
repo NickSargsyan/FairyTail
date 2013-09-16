@@ -23,7 +23,7 @@
 		C3962E6317E1C9FA00480E4F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3962E5317E1C9FA00480E4F /* SBJsonParser.m */; };
 		C3962E6417E1C9FA00480E4F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3962E5517E1C9FA00480E4F /* SBJsonWriter.m */; };
 		C3962E6817E1EB5200480E4F /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3962E6717E1EB5200480E4F /* PurchaseManager.m */; };
-		C3962E6B17E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.m */; };
+		C3962E6B17E1F8A100480E4F /* FairyTailInteractiveLeafImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeafImageView.m */; };
 		C399765917DA4D54007EDBFB /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = C399765817DA3BA8007EDBFB /* Constants.h */; };
 		C39B096417DF41F50022385D /* cloudDemo1.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096217DF41F50022385D /* cloudDemo1.png */; };
 		C39B096517DF41F50022385D /* cloudDemo2.png in Resources */ = {isa = PBXBuildFile; fileRef = C39B096317DF41F50022385D /* cloudDemo2.png */; };
@@ -33,6 +33,8 @@
 		C39B097117DF5B200022385D /* FairyTailAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39B096F17DF5B200022385D /* FairyTailAboutViewController.xib */; };
 		C39BDB4B17D74891009151D4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39BDB4A17D74891009151D4 /* CoreMotion.framework */; };
 		C3A63BDA17D9EF2D00E9DB46 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */; };
+		C3A9A00217E33219002F9917 /* leaf1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3A9A00017E33219002F9917 /* leaf1.png */; };
+		C3A9A00317E33219002F9917 /* leaf2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3A9A00117E33219002F9917 /* leaf2.png */; };
 		C3B69CB317D601850036181B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B69CB217D601850036181B /* StoreKit.framework */; };
 		C3B69CC017D6288F0036181B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CBF17D6288F0036181B /* back.png */; };
 		C3B69CC317D62AD00036181B /* slider-background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B69CC117D62AD00036181B /* slider-background.png */; };
@@ -121,8 +123,8 @@
 		C3962E5517E1C9FA00480E4F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		C3962E6617E1EB5200480E4F /* PurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseManager.h; sourceTree = "<group>"; };
 		C3962E6717E1EB5200480E4F /* PurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseManager.m; sourceTree = "<group>"; };
-		C3962E6917E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailInteractiveLeaveImageView.h; sourceTree = "<group>"; };
-		C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailInteractiveLeaveImageView.m; sourceTree = "<group>"; };
+		C3962E6917E1F8A100480E4F /* FairyTailInteractiveLeafImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FairyTailInteractiveLeafImageView.h; sourceTree = "<group>"; };
+		C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeafImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairyTailInteractiveLeafImageView.m; sourceTree = "<group>"; };
 		C399765817DA3BA8007EDBFB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C39B096217DF41F50022385D /* cloudDemo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudDemo1.png; sourceTree = "<group>"; };
 		C39B096317DF41F50022385D /* cloudDemo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudDemo2.png; sourceTree = "<group>"; };
@@ -133,6 +135,8 @@
 		C39B096F17DF5B200022385D /* FairyTailAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FairyTailAboutViewController.xib; sourceTree = "<group>"; };
 		C39BDB4A17D74891009151D4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C3A63BD917D9EF2D00E9DB46 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C3A9A00017E33219002F9917 /* leaf1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf1.png; sourceTree = "<group>"; };
+		C3A9A00117E33219002F9917 /* leaf2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf2.png; sourceTree = "<group>"; };
 		C3B69CB217D601850036181B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C3B69CBF17D6288F0036181B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		C3B69CC117D62AD00036181B /* slider-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-background.png"; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 		C3C46D2317CCC16D002F68C5 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				C3A9A00017E33219002F9917 /* leaf1.png */,
+				C3A9A00117E33219002F9917 /* leaf2.png */,
 				C39B096617DF482A0022385D /* appleDemo.png */,
 				C39B096817DF482A0022385D /* windmillWheelDemo.png */,
 				C39B096217DF41F50022385D /* cloudDemo1.png */,
@@ -461,8 +467,8 @@
 				C3EEE3F517D762B200CC9B85 /* FairyTailInteractiveRotatableImageView.m */,
 				C3EEE3F717D762D700CC9B85 /* FairyTailInteractiveMovableImageView.h */,
 				C3EEE3F817D762D700CC9B85 /* FairyTailInteractiveMovableImageView.m */,
-				C3962E6917E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.h */,
-				C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.m */,
+				C3962E6917E1F8A100480E4F /* FairyTailInteractiveLeafImageView.h */,
+				C3962E6A17E1F8A100480E4F /* FairyTailInteractiveLeafImageView.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -569,6 +575,8 @@
 				C39B096917DF482A0022385D /* appleDemo.png in Resources */,
 				C39B096B17DF482A0022385D /* windmillWheelDemo.png in Resources */,
 				C39B097117DF5B200022385D /* FairyTailAboutViewController.xib in Resources */,
+				C3A9A00217E33219002F9917 /* leaf1.png in Resources */,
+				C3A9A00317E33219002F9917 /* leaf2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +635,7 @@
 				C3962E6317E1C9FA00480E4F /* SBJsonParser.m in Sources */,
 				C3962E6417E1C9FA00480E4F /* SBJsonWriter.m in Sources */,
 				C3962E6817E1EB5200480E4F /* PurchaseManager.m in Sources */,
-				C3962E6B17E1F8A100480E4F /* FairyTailInteractiveLeaveImageView.m in Sources */,
+				C3962E6B17E1F8A100480E4F /* FairyTailInteractiveLeafImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +705,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				PROVISIONING_PROFILE = "4D76AEE8-4006-4553-8181-06B68C8E4A55";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D76AEE8-4006-4553-8181-06B68C8E4A55";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -725,8 +733,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0153B2CD-067C-4972-99D7-2F162DCAF93A";
+				PROVISIONING_PROFILE = "4D76AEE8-4006-4553-8181-06B68C8E4A55";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D76AEE8-4006-4553-8181-06B68C8E4A55";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

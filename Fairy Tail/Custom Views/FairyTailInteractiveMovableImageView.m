@@ -21,7 +21,6 @@
     CGFloat floor;
     CGPoint point;
     NSInteger count;
-    CGSize way;
     NSInteger touchSum;
     BOOL allowed,goBack;
     
@@ -92,6 +91,8 @@
         {
             count = arc4random() % 150;
             speed = arc4random() % 2 + 1;
+            velocityX = 0;
+            velocityY = 0;
             x = -(self.frame.size.width);
             y = arc4random() % (int)(floor - seil) + seil;
             [self setFrame:CGRectMake(x, y, self.frame.size.width, self.frame.size.height)];
@@ -101,6 +102,8 @@
             if(moveEnded)
             {
                 [self setFrame:CGRectOffset(self.frame, speed+velocityX, velocityY)];
+                
+                NSLog(@"%f %f" , velocityX , velocityY);
                 
                 if(velocityX>0)
                 {
@@ -164,8 +167,6 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     touchSum = 0;
-    way.width = 0;
-    way.height = 0;
     isAnimationAllowed = NO;
     point = [[touches anyObject] locationInView:self];
 }
@@ -187,12 +188,12 @@
         }
         
         //point1 = point;
-        way.width = [touch locationInView:self].x - point.x;
-        way.height = [touch locationInView:self].y - point.y;
-        NSLog(@"Touch x = %f" , [touch locationInView:self].x);
-        NSLog(@"Touch y = %f" , [touch locationInView:self].y);
-        NSLog(@"Point x = %f" , point.x);
-        NSLog(@"Point y = %f" , point.y);
+        velocityX = ([touch locationInView:self].x - point.x) / 3;
+        velocityY = ([touch locationInView:self].y - point.y) / 3;
+        //NSLog(@"Touch x = %f" , [touch locationInView:self].x);
+        //NSLog(@"Touch y = %f" , [touch locationInView:self].y);
+        //NSLog(@"Point x = %f" , point.x);
+        //NSLog(@"Point y = %f" , point.y);
         [self setFrame:CGRectOffset(self.frame, [touch locationInView:self].x-point.x, [touch locationInView:self].y-point.y)];
         point = [touch locationInView:self];
         touchSum++;
@@ -204,8 +205,6 @@
     moveEnded = YES;
     if (!allowed)
     {
-        velocityX = way.width;
-        velocityY = way.height;
         [self setUserInteractionEnabled:YES];
         allowed = YES;
         moveEnded = NO;
@@ -218,8 +217,6 @@
     moveEnded = YES;
     if (!allowed)
     {
-        velocityX = way.width;
-        velocityY = way.height;
         [self setUserInteractionEnabled:YES];
         allowed = YES;
         moveEnded = NO;

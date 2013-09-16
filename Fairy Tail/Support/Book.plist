@@ -48,9 +48,9 @@
 				<dict>
 					<key>CloudImage</key>
 					<string>cloudDemo2.png</string>
-					<key>CeilCoordinate</key>
+					<key>CloudCeilCoordinate</key>
 					<string>0</string>
-					<key>FloorCoordinate</key>
+					<key>CloudFloorCoordinate</key>
 					<string>100</string>
 				</dict>
 			</dict>
@@ -94,10 +94,31 @@
 				<dict>
 					<key>CloudImage</key>
 					<string>cloudDemo2.png</string>
-					<key>CeilCoordinate</key>
+					<key>CloudCeilCoordinate</key>
 					<string>0</string>
-					<key>FloorCoordinate</key>
+					<key>CloudFloorCoordinate</key>
 					<string>200</string>
+				</dict>
+			</dict>
+			<key>Leafs</key>
+			<dict>
+				<key>Leaf-0</key>
+				<dict>
+					<key>LeafImage</key>
+					<string>leaf1.png</string>
+					<key>LeafFloorCoordinate</key>
+					<string>400</string>
+					<key>LeafXCoordinate</key>
+					<string>300</string>
+				</dict>
+				<key>Leaf-1</key>
+				<dict>
+					<key>LeafImage</key>
+					<string>leaf2.png</string>
+					<key>LeafFloorCoordinate</key>
+					<string>400</string>
+					<key>LeafXCoordinate</key>
+					<string>400</string>
 				</dict>
 			</dict>
 		</dict>
@@ -116,9 +137,9 @@
 				<dict>
 					<key>CloudImage</key>
 					<string>cloudDemo2.png</string>
-					<key>CeilCoordinate</key>
+					<key>CloudCeilCoordinate</key>
 					<string>0</string>
-					<key>FloorCoordinate</key>
+					<key>CloudFloorCoordinate</key>
 					<string>100</string>
 				</dict>
 			</dict>

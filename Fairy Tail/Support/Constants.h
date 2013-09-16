@@ -34,8 +34,13 @@
 
 #define clouds @"Clouds"
 #define cloudImage @"CloudImage"
-#define cloudCeilCoordinate @"CeilCoordinate"
-#define cloudFloorCoordinate @"FloorCoordinate"
+#define cloudCeilCoordinate @"CloudCeilCoordinate"
+#define cloudFloorCoordinate @"CloudFloorCoordinate"
+
+#define leafs @"Leafs"
+#define leafImage @"LeafImage"
+#define leafFloorCoordinate @"LeafFloorCoordinate"
+#define leafXCoordinate @"LeafXCoordinate"
 
 #define stageFrame CGRectMake(0, 0, 832, 562)
 #define titleFrame CGRectMake(0, 0, 1024, 748)

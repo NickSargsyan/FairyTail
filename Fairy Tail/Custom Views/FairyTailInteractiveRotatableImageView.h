@@ -11,4 +11,15 @@
 
 @interface FairyTailInteractiveRotatableImageView : UIImageView
 
+@property (nonatomic, readwrite) BOOL isAnimationAllowed;
+
+@property (nonatomic, readwrite) CGPoint point;
+@property (nonatomic, readwrite) CGPoint centerPoint;
+
+@property (nonatomic, readwrite) NSInteger sign;
+
+@property (nonatomic, readwrite) CGFloat velocity;
+
+@property (nonatomic, readwrite) CGAffineTransform rotateTransformation;
+
 @end
